@@ -35,7 +35,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
     }
 
     fun customPlacemarksOfMap() {
-        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUS1, R.drawable.heart) //заменять текст иконками в которые интегрирован текст
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[0], R.drawable.heart) //заменять текст иконками в которые интегрирован текст
     }
 
     fun polygonsOfMap() = with(binding) {
@@ -47,7 +47,15 @@ class MapOprations(private val binding: ActivityMainBinding) {
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.001, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001)
         )
         mapOperationsTools.addPolygonOnMap(points, R.color.white)
+        val points1 = listOf(
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0009),
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0009),
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0009),
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0009)
+        )
+        mapOperationsTools.addPolygonOnMap(points1, Color.RED)
     }
+
 
 //    fun mapBorders() = with(binding) {
 //        val allowedAreaRadius = 0.0135
