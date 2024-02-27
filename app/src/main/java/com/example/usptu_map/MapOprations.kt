@@ -36,24 +36,45 @@ class MapOprations(private val binding: ActivityMainBinding) {
 
     fun customPlacemarksOfMap() {
         mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[0], R.drawable.heart) //заменять текст иконками в которые интегрирован текст
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[1], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[2], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[3], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[4], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[5], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[6], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[7], R.drawable.heart)
+        mapOperationsTools.addPlacemarkOnMap("", Сoordinates.CORPUSES[8], R.drawable.heart)
+
     }
 
     fun polygonsOfMap() = with(binding) {
         // Создание точек вокруг центральной точки для полигона
-        val points = listOf(
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.001, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.001, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.001),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.001, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.001),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.001, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001)
+        val firstCorpusArea = listOf(
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0002, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//ВЛ
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0004, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00087),//ВП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0015, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0014),//НП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0023, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00082),//КНП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0018, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001),//КНЛ
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0015, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
         )
-        mapOperationsTools.addPolygonOnMap(points, R.color.white)
-        val points1 = listOf(
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0009),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0009),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0009),
-            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0009, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0009)
+        mapOperationsTools.addPolygonOnMap(firstCorpusArea, R.color.white)
+
+        val secondCorpusArea = listOf(
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0006, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00077, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00078),//НП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0042, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.004, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
         )
-        mapOperationsTools.addPolygonOnMap(points1, Color.RED)
+        mapOperationsTools.addPolygonOnMap(secondCorpusArea, R.color.white)
+
+        val thirdCorpusArea = listOf(
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00036, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0038),//НЛ
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00056, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0015),//НП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.004, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00254),//ВП
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0043, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0032),//ВВ
+            Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.002, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0044),//ВЛ
+        )
+        mapOperationsTools.addPolygonOnMap(thirdCorpusArea, R.color.white)
     }
 
 
