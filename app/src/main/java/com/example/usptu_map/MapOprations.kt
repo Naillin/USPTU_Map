@@ -82,7 +82,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0018, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001),//КНЛ
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0015, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
         )
-        mapOperationsTools.addPolygonOnMap(firstCorpusArea, R.color.white)
+        mapOperationsTools.addPolygonOnMap(firstCorpusArea, R.color.light_blue)
 
         val secondCorpusArea = listOf(
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0006, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
@@ -90,7 +90,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0042, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.004, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
         )
-        mapOperationsTools.addPolygonOnMap(secondCorpusArea, R.color.white)
+        mapOperationsTools.addPolygonOnMap(secondCorpusArea, R.color.light_blue)
 
         val thirdCorpusArea = listOf(
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00036, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0038),//НЛ
@@ -99,7 +99,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0043, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0032),//ВВ
             Point(com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.002, com.example.usptu_map.Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0044),//ВЛ
         )
-        mapOperationsTools.addPolygonOnMap(thirdCorpusArea, R.color.white)
+        mapOperationsTools.addPolygonOnMap(thirdCorpusArea, R.color.light_blue)
     }
 
 
