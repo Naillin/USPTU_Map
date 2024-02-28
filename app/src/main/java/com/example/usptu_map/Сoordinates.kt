@@ -7,8 +7,8 @@ object Сoordinates {
     val CENTER_USPTU_CITY_COORD: Point = Point(54.818329, 56.058558)
 
     //Границы карты от центра в пол километра
-    val SOUTHWEST_USPTU_CITY_COORD: Point = Point(54.813824, 56.050740)
-    val NORTHEAST_USPTU_CITY_COORD: Point = Point(54.822834, 56.066376)
+    val SOUTHWEST_USPTU_CITY_COORD: Point = Point(54.813824 + 0.000010, 56.050740  + 0.000010)
+    val NORTHEAST_USPTU_CITY_COORD: Point = Point(54.822834 - 0.000010, 56.066376 - 0.000010)
 
     //КОРПУСА
     val CORPUS1: Point = Point(54.818545, 56.058506)
