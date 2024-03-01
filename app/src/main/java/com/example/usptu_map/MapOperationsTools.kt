@@ -38,7 +38,7 @@ class MapOperationsTools(private val mapView: MapView) {
         // Добавление полигона на карту и настройка его внешнего вида
         val polygonMapObject = mapObjects.addPolygon(polygon)
         polygonMapObject.fillColor = color // Пример: полупрозрачный красный цвет
-        polygonMapObject.strokeColor = android.graphics.Color.BLACK // Цвет границы
+        polygonMapObject.strokeColor = Color.BLACK // Цвет границы
         polygonMapObject.strokeWidth = 2.0f // Ширина границы
 
         polygonList.add(polygonMapObject)

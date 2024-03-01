@@ -1,6 +1,8 @@
 package com.example.usptu_map
 
+import android.graphics.Color
 import android.util.Log
+import androidx.core.content.ContextCompat
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.project_objects.PolygonsMarks
 import com.example.usptu_map.project_objects.Сoordinates
@@ -64,27 +66,28 @@ class MapOprations(private val binding: ActivityMainBinding) {
 
     fun polygonsOfMap() = with(binding) {
         PolygonsMarks.apply {
-            mapOperationsTools.addPolygonOnMap(firstCorpusArea, R.color.light_blue)
-            mapOperationsTools.addPolygonOnMap(secondCorpusArea, R.color.light_blue)
-            mapOperationsTools.addPolygonOnMap(thirdCorpusArea, R.color.light_blue)
-            mapOperationsTools.addPolygonOnMap(fourthCorpusArea, R.color.light_blue)
-            mapOperationsTools.addPolygonOnMap(firstCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(elevenCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(ufkOneCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(ufkTwoCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(thirdCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(secondCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(fourthCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(sevenCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(eighthCorpus, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(firstDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(secondDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(thirdDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(fourthDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(fiveDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(sixDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(tenDormitory, R.color.light_red)
-            mapOperationsTools.addPolygonOnMap(dinningRoom, R.color.light_red)
+            mapOperationsTools.addPolygonOnMap(firstCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(elevenCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(ufkOneCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(ufkTwoCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(thirdCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(secondCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(fourthCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(sevenCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(eighthCorpus, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(firstDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(secondDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(thirdDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(fourthDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(fiveDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(sixDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(tenDormitory, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(dinningRoom, ContextCompat.getColor(root.context, R.color.light_red))
+
+            mapOperationsTools.addPolygonOnMap(firstCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
+            mapOperationsTools.addPolygonOnMap(secondCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
+            mapOperationsTools.addPolygonOnMap(thirdCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
+            mapOperationsTools.addPolygonOnMap(fourthCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
         }
 
     }
