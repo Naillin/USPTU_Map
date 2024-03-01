@@ -1,4 +1,4 @@
-package com.example.usptu_map
+package com.example.usptu_map.project_objects
 
 import com.yandex.mapkit.geometry.Point
 

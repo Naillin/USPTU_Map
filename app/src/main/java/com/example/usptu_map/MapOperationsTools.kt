@@ -1,14 +1,12 @@
 package com.example.usptu_map
 
 import android.graphics.Color
-import com.yandex.mapkit.Animation
+import com.example.usptu_map.project_objects.Сoordinates
 import com.yandex.mapkit.geometry.LinearRing
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.Polygon
 import com.yandex.mapkit.map.MapObjectCollection
-import com.yandex.mapkit.map.PlacemarkAnimation
 import com.yandex.mapkit.map.PlacemarkMapObject
-import com.yandex.mapkit.map.PlacemarksStyler
 import com.yandex.mapkit.map.PolygonMapObject
 import com.yandex.mapkit.mapview.MapView
 

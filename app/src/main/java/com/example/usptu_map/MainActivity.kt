@@ -1,32 +1,20 @@
 package com.example.usptu_map
 
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.graphics.Color
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
-import android.view.GestureDetector
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.usptu_map.databinding.ActivityMainBinding
-import com.yandex.mapkit.Animation
+import com.example.usptu_map.project_objects.ConstantsProject
 import com.yandex.mapkit.MapKitFactory
-import com.yandex.mapkit.geometry.LinearRing
-import com.yandex.mapkit.geometry.Point
-import com.yandex.mapkit.geometry.Polygon
 import com.yandex.mapkit.location.LocationListener
 import com.yandex.mapkit.map.CameraListener
-import com.yandex.mapkit.map.CameraPosition
-import com.yandex.mapkit.map.MapObjectCollection
-import com.yandex.runtime.image.ImageProvider
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var mapOprations: MapOprations
-    private lateinit var locationListenerUser: LocationListener
     private lateinit var mapBorders: CameraListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         mapOprations = MapOprations(bindingMainActivity)
-        locationListenerUser = mapOprations.userPlacemark()
         mapBorders = mapOprations.getMapBorders()
 
         setContentView(bindingMainActivity.root)
@@ -47,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         bindingMainActivity.viewBlockMap.visibility = View.GONE
         initializationBottomMenu()
 
-        WebParsing().getParseData() // не робит
+        //WebParsing().getParseData() // не робит
     }
 
     private fun initializationMaps() {
@@ -69,12 +56,39 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkAndRequestLocationPermissions() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            || ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
+                1
+            )
+        } else {
+            //Разрешения уже предоставлены, можно начинать отслеживание местоположения
+            mapOprations.userLocation()
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                //Разрешения предоставлены, начинаем отслеживание местоположения
+                mapOprations.userLocation()
+            } else {
+                //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
+            }
+        }
+    }
+
     override fun onStart() = with(bindingMainActivity) {
         super.onStart()
 
         mapViewMain.onStart()
         MapKitFactory.getInstance().onStart()
-        //MapKitFactory.getInstance().createLocationManager().requestSingleUpdate(locationListenerUser)
+        checkAndRequestLocationPermissions()
     }
 
     override fun onResume() = with(bindingMainActivity) {
@@ -91,7 +105,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() = with(bindingMainActivity) {
-        //MapKitFactory.getInstance().createLocationManager().unsubscribe(locationListenerUser)
         MapKitFactory.getInstance().onStop()
         mapViewMain.onStop()
 
