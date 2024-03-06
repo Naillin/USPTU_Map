@@ -1,18 +1,34 @@
 package com.example.usptu_map
 
 import android.graphics.Color
+import android.widget.Toast
 import com.example.usptu_map.project_objects.Сoordinates
+import com.yandex.mapkit.RequestPoint
+import com.yandex.mapkit.RequestPointType
+import com.yandex.mapkit.directions.DirectionsFactory
+import com.yandex.mapkit.directions.driving.DrivingOptions
+import com.yandex.mapkit.directions.driving.DrivingRoute
+import com.yandex.mapkit.directions.driving.DrivingRouter
+import com.yandex.mapkit.directions.driving.DrivingSession
+import com.yandex.mapkit.directions.driving.VehicleOptions
 import com.yandex.mapkit.geometry.LinearRing
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.Polygon
 import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.map.PolygonMapObject
+import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.mapview.MapView
+import com.yandex.mapkit.transport.TransportFactory
+import com.yandex.mapkit.transport.masstransit.PedestrianRouter
+import com.yandex.mapkit.transport.masstransit.Route
+import com.yandex.mapkit.transport.masstransit.Session
+import com.yandex.mapkit.transport.masstransit.TimeOptions
 
 class MapOperationsTools(private val mapView: MapView) {
     val placemarkList: MutableList<PlacemarkMapObject> = mutableListOf()
     val polygonList: MutableList<PolygonMapObject> = mutableListOf()
+    private var routeOfMap: PolylineMapObject? = null
 
     fun addPlacemarkOnMap(title: String = "", point: Point = Сoordinates.CENTER_USPTU_CITY_COORD, icon: Int = 0) {
         val context = mapView.context
@@ -29,7 +45,7 @@ class MapOperationsTools(private val mapView: MapView) {
         placemarkList.add(placemark)
     }
 
-    fun addPolygonOnMap(points: List<Point> = listOf(Point(50.0, 50.0)), color: Int = Color.RED){
+    fun addPolygonOnMap(points: List<Point> = listOf(Point(50.0, 50.0)), color: Int = Color.RED) {
         val mapObjects: MapObjectCollection = mapView.map.mapObjects.addCollection()
 
         // Создание полигона
@@ -43,4 +59,43 @@ class MapOperationsTools(private val mapView: MapView) {
 
         polygonList.add(polygonMapObject)
     }
+
+    fun requestRoute2Points(startPoint: Point, endPoint: Point): Session  {
+        //Запуск
+        val pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter()
+
+        //Создание запроса
+        val requestPoints = arrayListOf(
+            RequestPoint(startPoint, RequestPointType.WAYPOINT, null, null),
+            RequestPoint(endPoint, RequestPointType.WAYPOINT, null, null)
+        )
+
+        val pedestrianSession = pedestrianRouter.requestRoutes(requestPoints, TimeOptions(null, null), object : Session.RouteListener {
+            override fun onMasstransitRoutes(routes: MutableList<Route>) {
+                if (routes.isNotEmpty()) {
+                    // Удаляем предыдущий маршрут, если он существует
+                    routeOfMap?.let {
+                        mapView.map.mapObjects.remove(it)
+                    }
+
+                    routeOfMap = mapView.map.mapObjects.addPolyline(routes.first().geometry)
+                    routeOfMap!!.setStrokeColor(Color.BLUE) // Цвет полилинии маршрута
+                }
+            }
+
+            override fun onMasstransitRoutesError(error: com.yandex.runtime.Error) {
+                //Toast.makeText(context, "Ошибка при построении маршрута: ${error.toString()}", Toast.LENGTH_LONG).show()
+            }
+        })
+
+        return pedestrianSession
+    }
+
+    fun removeRouteOfMap() {
+        routeOfMap?.let {
+            mapView.map.mapObjects.remove(it)
+            routeOfMap = null
+        }
+    }
+
 }

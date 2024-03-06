@@ -8,14 +8,25 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.project_objects.ConstantsProject
+import com.example.usptu_map.project_objects.Сoordinates
 import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.directions.DirectionsFactory
+import com.yandex.mapkit.directions.driving.DrivingSession
+import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.LocationListener
 import com.yandex.mapkit.map.CameraListener
+import com.yandex.mapkit.transport.TransportFactory
+import com.yandex.mapkit.transport.masstransit.Session
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var mapOprations: MapOprations
+    private lateinit var mapOperationsTools: MapOperationsTools
     private lateinit var mapBorders: CameraListener
+
+    //Сессия маршрутов
+    private var drivingSession: DrivingSession? = null
+    private var pedestrianSession: Session? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         mapOprations = MapOprations(bindingMainActivity)
+        mapOperationsTools = MapOperationsTools(bindingMainActivity.mapViewMain)
         mapBorders = mapOprations.getMapBorders()
 
         setContentView(bindingMainActivity.root)
@@ -40,16 +52,22 @@ class MainActivity : AppCompatActivity() {
     private fun initializationMaps() {
         MapKitFactory.setApiKey(ConstantsProject.API_KEY_YANDEX_MAPS)
         MapKitFactory.initialize(this@MainActivity)
+        TransportFactory.initialize(this@MainActivity)
     }
 
+    var p1: Point = Сoordinates.CENTER_USPTU_CITY_COORD
     private fun initializationBottomMenu() = with(bindingMainActivity) {
         bottomNavMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.itemMakeRoute -> {
                     // Обработка выбора "Создать маршрут"
+                    pedestrianSession = mapOperationsTools.requestRoute2Points(p1, Сoordinates.CORPUSES[2])
+
                 }
                 R.id.itemDeleteRoute -> {
                     // Обработка выбора "Удалить маршрут"
+                p1 = Point(p1.latitude + 0.0001, p1.longitude)
+
                 }
             }
             true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
@@ -57,11 +75,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAndRequestLocationPermissions() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-            || ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            || ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(
-                this,
+                this@MainActivity,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION),
                 1
             )
@@ -109,5 +127,12 @@ class MainActivity : AppCompatActivity() {
         mapViewMain.onStop()
 
         super.onStop()
+    }
+
+    override fun onDestroy() {
+        drivingSession?.cancel()
+        pedestrianSession?.cancel()
+
+        super.onDestroy()
     }
 }
