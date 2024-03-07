@@ -61,13 +61,12 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.itemMakeRoute -> {
                     // Обработка выбора "Создать маршрут"
-                    pedestrianSession = mapOperationsTools.requestRoute2Points(p1, Сoordinates.CORPUSES[2])
+                    pedestrianSession = mapOprations.requestRoute2Points(p1, Сoordinates.CORPUSES[2])
 
                 }
                 R.id.itemDeleteRoute -> {
                     // Обработка выбора "Удалить маршрут"
-                p1 = Point(p1.latitude + 0.0001, p1.longitude)
-
+                    p1 = Point(p1.latitude + 0.0001, p1.longitude)
                 }
             }
             true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный

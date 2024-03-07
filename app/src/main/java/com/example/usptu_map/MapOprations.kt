@@ -2,12 +2,15 @@ package com.example.usptu_map
 
 import android.graphics.Color
 import android.util.Log
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.project_objects.PolygonsMarks
 import com.example.usptu_map.project_objects.Сoordinates
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.RequestPoint
+import com.yandex.mapkit.RequestPointType
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.FilteringMode
 import com.yandex.mapkit.location.Location
@@ -17,6 +20,11 @@ import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.CameraUpdateReason
 import com.yandex.mapkit.map.PlacemarkMapObject
+import com.yandex.mapkit.map.PolylineMapObject
+import com.yandex.mapkit.transport.TransportFactory
+import com.yandex.mapkit.transport.masstransit.Route
+import com.yandex.mapkit.transport.masstransit.Session
+import com.yandex.mapkit.transport.masstransit.TimeOptions
 import com.yandex.runtime.image.ImageProvider
 import java.io.IOException
 
@@ -238,6 +246,40 @@ class MapOprations(private val binding: ActivityMainBinding) {
         userLocationPlacemark?.let {
             mapViewMain.map.mapObjects.remove(it)
             userLocationPlacemark = null
+        }
+    }
+
+    private var routeOfMap: PolylineMapObject? = null
+    fun requestRoute2Points(startPoint: Point, endPoint: Point): Session = with(binding) {
+        //Запуск
+        val pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter()
+
+        //Создание запроса
+        val requestPoints = arrayListOf(
+            RequestPoint(startPoint, RequestPointType.WAYPOINT, null, null),
+            RequestPoint(endPoint, RequestPointType.WAYPOINT, null, null)
+        )
+
+        //Удаление предыдущего маршрута, если он существует
+        routeOfMap?.let {
+            mapViewMain.map.mapObjects.remove(it)
+            routeOfMap = null
+        }
+
+        val pedestrianSession = pedestrianRouter.requestRoutes(requestPoints, TimeOptions(null, null), mapOperationsTools.RouteFactory(routeOfMap, Color.GRAY, { error ->
+            Toast.makeText(root.context, "Ошибка при построении маршрута: ${error.toString()}", Toast.LENGTH_LONG).show()
+            }, { newRoute ->
+            routeOfMap = newRoute
+            })
+        )
+
+        return pedestrianSession
+    }
+
+    fun removeRouteOfMap() {
+        routeOfMap?.let {
+            binding.mapViewMain.map.mapObjects.remove(it)
+            routeOfMap = null
         }
     }
 }
