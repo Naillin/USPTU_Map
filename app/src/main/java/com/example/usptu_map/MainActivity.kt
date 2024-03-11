@@ -7,13 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.usptu_map.databinding.ActivityMainBinding
+import com.example.usptu_map.map_operations.MapOperationsTools
+import com.example.usptu_map.map_operations.MapOprations
+import com.example.usptu_map.map_operations.UserLocation
 import com.example.usptu_map.project_objects.ConstantsProject
 import com.example.usptu_map.project_objects.Сoordinates
 import com.yandex.mapkit.MapKitFactory
-import com.yandex.mapkit.directions.DirectionsFactory
-import com.yandex.mapkit.directions.driving.DrivingSession
-import com.yandex.mapkit.geometry.Point
-import com.yandex.mapkit.location.LocationListener
 import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
@@ -23,9 +22,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mapOprations: MapOprations
     private lateinit var mapOperationsTools: MapOperationsTools
     private lateinit var mapBorders: CameraListener
+    private lateinit var userLocation: UserLocation
 
     //Сессия маршрутов
-    private var drivingSession: DrivingSession? = null
     private var pedestrianSession: Session? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         mapOprations = MapOprations(bindingMainActivity)
         mapOperationsTools = MapOperationsTools(bindingMainActivity.mapViewMain)
         mapBorders = mapOprations.getMapBorders()
+        userLocation = UserLocation(bindingMainActivity)
 
         setContentView(bindingMainActivity.root)
 
@@ -55,18 +55,19 @@ class MainActivity : AppCompatActivity() {
         TransportFactory.initialize(this@MainActivity)
     }
 
-    var p1: Point = Сoordinates.CENTER_USPTU_CITY_COORD
     private fun initializationBottomMenu() = with(bindingMainActivity) {
         bottomNavMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.itemMakeRoute -> {
                     // Обработка выбора "Создать маршрут"
-                    pedestrianSession = mapOprations.requestRoute2Points(p1, Сoordinates.CORPUSES[2])
+                    pedestrianSession = mapOprations.requestRoute2Points(
+                        userLocation.getUserLocation()!!.position,
+                        Сoordinates.CORPUSES[2]
+                    )
 
                 }
                 R.id.itemDeleteRoute -> {
                     // Обработка выбора "Удалить маршрут"
-                    p1 = Point(p1.latitude + 0.0001, p1.longitude)
                 }
             }
             true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
@@ -84,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             //Разрешения уже предоставлены, можно начинать отслеживание местоположения
-            mapOprations.userLocation()
+            userLocation.initUserLocation()
         }
     }
 
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 //Разрешения предоставлены, начинаем отслеживание местоположения
-                mapOprations.userLocation()
+                userLocation.initUserLocation()
             } else {
                 //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
             }
@@ -111,11 +112,11 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() = with(bindingMainActivity) {
         super.onResume()
 
-        mapViewMain.mapWindow.map.addCameraListener(mapBorders)
+        //mapViewMain.mapWindow.map.addCameraListener(mapBorders)
     }
 
     override fun onPause() = with(bindingMainActivity) {
-        mapViewMain.mapWindow.map.removeCameraListener(mapBorders)
+        //mapViewMain.mapWindow.map.removeCameraListener(mapBorders)
         mapOprations.setDefaultLocation()
 
         super.onPause()
@@ -129,7 +130,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        drivingSession?.cancel()
         pedestrianSession?.cancel()
 
         super.onDestroy()

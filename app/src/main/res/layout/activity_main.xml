@@ -7,14 +7,30 @@
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMain"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewOptions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            app:cardCornerRadius="15dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
 
         <com.yandex.mapkit.mapview.MapView
             android:id="@+id/mapViewMain"
@@ -32,7 +48,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewBottom"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="5dp"

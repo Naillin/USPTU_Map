@@ -1,17 +1,7 @@
-package com.example.usptu_map
+package com.example.usptu_map.map_operations
 
-import android.content.Context
 import android.graphics.Color
-import android.widget.Toast
 import com.example.usptu_map.project_objects.Сoordinates
-import com.yandex.mapkit.RequestPoint
-import com.yandex.mapkit.RequestPointType
-import com.yandex.mapkit.directions.DirectionsFactory
-import com.yandex.mapkit.directions.driving.DrivingOptions
-import com.yandex.mapkit.directions.driving.DrivingRoute
-import com.yandex.mapkit.directions.driving.DrivingRouter
-import com.yandex.mapkit.directions.driving.DrivingSession
-import com.yandex.mapkit.directions.driving.VehicleOptions
 import com.yandex.mapkit.geometry.LinearRing
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.Polygon
@@ -20,12 +10,8 @@ import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.map.PolygonMapObject
 import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.mapview.MapView
-import com.yandex.mapkit.transport.TransportFactory
-import com.yandex.mapkit.transport.masstransit.PedestrianRouter
 import com.yandex.mapkit.transport.masstransit.Route
 import com.yandex.mapkit.transport.masstransit.Session
-import com.yandex.mapkit.transport.masstransit.TimeOptions
-import com.yandex.runtime.Error
 
 class MapOperationsTools(private val mapView: MapView) {
     val placemarkList: MutableList<PlacemarkMapObject> = mutableListOf()

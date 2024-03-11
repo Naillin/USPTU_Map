@@ -1,9 +1,10 @@
-package com.example.usptu_map
+package com.example.usptu_map.map_operations
 
 import android.graphics.Color
 import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.usptu_map.R
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.project_objects.PolygonsMarks
 import com.example.usptu_map.project_objects.Сoordinates
@@ -22,10 +23,8 @@ import com.yandex.mapkit.map.CameraUpdateReason
 import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.transport.TransportFactory
-import com.yandex.mapkit.transport.masstransit.Route
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.mapkit.transport.masstransit.TimeOptions
-import com.yandex.runtime.image.ImageProvider
 import java.io.IOException
 
 class MapOprations(private val binding: ActivityMainBinding) {
@@ -74,28 +73,70 @@ class MapOprations(private val binding: ActivityMainBinding) {
 
     fun polygonsOfMap() = with(binding) {
         PolygonsMarks.apply {
-            mapOperationsTools.addPolygonOnMap(firstCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(elevenCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(ufkOneCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(ufkTwoCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(thirdCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(secondCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(fourthCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(sevenCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(eighthCorpus, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(firstDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(secondDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(thirdDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(fourthDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(fiveDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(sixDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(tenDormitory, ContextCompat.getColor(root.context, R.color.light_red))
-            mapOperationsTools.addPolygonOnMap(dinningRoom, ContextCompat.getColor(root.context, R.color.light_red))
+            mapOperationsTools.addPolygonOnMap(firstCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(elevenCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(ufkOneCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(ufkTwoCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(thirdCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(secondCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(fourthCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(sevenCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(eighthCorpus, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(firstDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(secondDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(thirdDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(fourthDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(fiveDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(sixDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(tenDormitory, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
+            mapOperationsTools.addPolygonOnMap(dinningRoom, ContextCompat.getColor(root.context,
+                R.color.light_red
+            ))
 
-            mapOperationsTools.addPolygonOnMap(firstCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
-            mapOperationsTools.addPolygonOnMap(secondCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
-            mapOperationsTools.addPolygonOnMap(thirdCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
-            mapOperationsTools.addPolygonOnMap(fourthCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
+            mapOperationsTools.addPolygonOnMap(firstCorpusArea, ContextCompat.getColor(root.context,
+                R.color.light_blue
+            ))
+            mapOperationsTools.addPolygonOnMap(secondCorpusArea, ContextCompat.getColor(root.context,
+                R.color.light_blue
+            ))
+            mapOperationsTools.addPolygonOnMap(thirdCorpusArea, ContextCompat.getColor(root.context,
+                R.color.light_blue
+            ))
+            mapOperationsTools.addPolygonOnMap(fourthCorpusArea, ContextCompat.getColor(root.context,
+                R.color.light_blue
+            ))
         }
 
     }
@@ -212,43 +253,6 @@ class MapOprations(private val binding: ActivityMainBinding) {
         return result
     }
 
-    private var userLocationPlacemark: PlacemarkMapObject? = null
-    fun userLocation() = with(binding)  {
-        val mapObjects = mapViewMain.map.mapObjects.addCollection()
-        userLocationPlacemark = mapObjects.addPlacemark(Point(0.0, 0.0))
-        userLocationPlacemark!!.setIcon(com.yandex.runtime.image.ImageProvider.fromResource(root.context, R.drawable.heart))
-
-        val locationManager = MapKitFactory.getInstance().createLocationManager()
-        locationManager.subscribeForLocationUpdates(0.0, 0, 0.0, true, FilteringMode.OFF, object : LocationListener {
-            override fun onLocationUpdated(location: Location) {
-                // Обновление позиции маркера пользователя на карте
-                userLocationPlacemark!!.geometry = location.position
-
-//                mapViewMain.map.move(
-//                    CameraPosition(
-//                        location.position,
-//                        /* zoom = */ 17.0f,
-//                        /* azimuth = */ 150.0f,
-//                        /* tilt = */ 30.0f
-//                    ),
-//                    Animation(Animation.Type.LINEAR, 0.1F),
-//                    null
-//                )
-            }
-
-            override fun onLocationStatusUpdated(locationStatus: LocationStatus) {
-                // Обработка изменения статуса местоположения, если необходимо
-            }
-        })
-    }
-
-    fun removeUserLocation() = with(binding) {
-        userLocationPlacemark?.let {
-            mapViewMain.map.mapObjects.remove(it)
-            userLocationPlacemark = null
-        }
-    }
-
     private var routeOfMap: PolylineMapObject? = null
     fun requestRoute2Points(startPoint: Point, endPoint: Point): Session = with(binding) {
         //Запуск
@@ -261,10 +265,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
         )
 
         //Удаление предыдущего маршрута, если он существует
-        routeOfMap?.let {
-            mapViewMain.map.mapObjects.remove(it)
-            routeOfMap = null
-        }
+        removeRouteOfMap()
 
         val pedestrianSession = pedestrianRouter.requestRoutes(requestPoints, TimeOptions(null, null), mapOperationsTools.RouteFactory(routeOfMap, Color.GRAY, { error ->
             Toast.makeText(root.context, "Ошибка при построении маршрута: ${error.toString()}", Toast.LENGTH_LONG).show()
@@ -276,7 +277,7 @@ class MapOprations(private val binding: ActivityMainBinding) {
         return pedestrianSession
     }
 
-    fun removeRouteOfMap() {
+    private fun removeRouteOfMap() {
         routeOfMap?.let {
             binding.mapViewMain.map.mapObjects.remove(it)
             routeOfMap = null
