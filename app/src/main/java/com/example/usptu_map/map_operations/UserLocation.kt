@@ -13,15 +13,21 @@ import com.yandex.mapkit.location.LocationStatus
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.PlacemarkMapObject
+import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
 
 class UserLocation(
     private val binding: ActivityMainBinding,
+    private val mapOprations: MapOprations
     //private val onLocationUpdateFunc: (() -> Unit)?
 ) {
     private var userLocation: Location? = null; public fun getUserLocation() = userLocation
-    private var userLocationPlacemark: PlacemarkMapObject? = null
 
+    public var routingEnabled: Boolean = false
+    public var routingSession: Session? = null
+    public var endPoint: Point = Point(0.0, 0.0)
+
+    private var userLocationPlacemark: PlacemarkMapObject? = null
     private var mapObjects: MapObjectCollection? = null // Для хранения ссылки на коллекцию объектов карты
 
     fun initUserLocation() = with(binding) {
@@ -50,6 +56,9 @@ class UserLocation(
 
                 mapViewMain.map.move(CameraPosition(location.position, 30.0f, 150.0f, 30.0f), Animation(Animation.Type.LINEAR, 0.1F), null)
 
+                if(routingEnabled) {
+                    routingSession = mapOprations.requestRoute2Points(location.position, endPoint)
+                }
                 //onLocationUpdateFunc?.invoke()
             }
 

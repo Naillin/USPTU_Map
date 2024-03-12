@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         mapOprations = MapOprations(bindingMainActivity)
         mapOperationsTools = MapOperationsTools(bindingMainActivity.mapViewMain)
         mapBorders = mapOprations.getMapBorders()
-        userLocation = UserLocation(bindingMainActivity)
+        userLocation = UserLocation(bindingMainActivity, mapOprations)
 
         setContentView(bindingMainActivity.root)
 
@@ -49,31 +49,14 @@ class MainActivity : AppCompatActivity() {
         //WebParsing().getParseData() // не робит
     }
 
+    //Запуск карты
     private fun initializationMaps() {
         MapKitFactory.setApiKey(ConstantsProject.API_KEY_YANDEX_MAPS)
         MapKitFactory.initialize(this@MainActivity)
         TransportFactory.initialize(this@MainActivity)
     }
 
-    private fun initializationBottomMenu() = with(bindingMainActivity) {
-        bottomNavMain.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.itemMakeRoute -> {
-                    // Обработка выбора "Создать маршрут"
-                    pedestrianSession = mapOprations.requestRoute2Points(
-                        userLocation.getUserLocation()!!.position,
-                        Сoordinates.CORPUSES[2]
-                    )
-
-                }
-                R.id.itemDeleteRoute -> {
-                    // Обработка выбора "Удалить маршрут"
-                }
-            }
-            true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
-        }
-    }
-
+    //Проверка прав
     private fun checkAndRequestLocationPermissions() {
         if (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
             || ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -89,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Проверка прав
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
@@ -98,6 +82,27 @@ class MainActivity : AppCompatActivity() {
             } else {
                 //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
             }
+        }
+    }
+
+    //Запуск нижнего меню
+    private fun initializationBottomMenu() = with(bindingMainActivity) {
+        bottomNavMain.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itemMakeRoute -> {
+                    // Обработка выбора "Создать маршрут"
+                    userLocation.endPoint = Сoordinates.CORPUSES[2]
+                    userLocation.routingEnabled = true
+
+                    pedestrianSession = userLocation.routingSession
+                }
+                R.id.itemDeleteRoute -> {
+                    userLocation.routingEnabled = false
+
+                    pedestrianSession = mapOprations.requestRoute2Points(Сoordinates.CORPUSES[1], Сoordinates.CORPUSES[8])
+                }
+            }
+            true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
         }
     }
 

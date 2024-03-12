@@ -23,6 +23,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="50dp"
+            android:visibility="gone"
             app:cardCornerRadius="15dp">
 
             <FrameLayout

@@ -48,63 +48,26 @@ class MapOperationsTools(private val mapView: MapView) {
         polygonList.add(polygonMapObject)
     }
 
-    inner class RouteFactory(private var route: PolylineMapObject?,
-                             private val color: Int = Color.DKGRAY,
-                             private val onError: (com.yandex.runtime.Error) -> Unit,
-                             private val onUpdateRoute: (PolylineMapObject) -> Unit) : Session.RouteListener {
-        override fun onMasstransitRoutes(routes: MutableList<Route>) {
-            if (routes.isNotEmpty()) {
-                //Удаляем предыдущий маршрут, если он существует
-                route?.let {
-                    mapView.map.mapObjects.remove(it)
-                }
-
-                route = mapView.map.mapObjects.addPolyline(routes.first().geometry)
-                route!!.setStrokeColor(color) //Цвет полилинии маршрута
-                onUpdateRoute(route!!)
-            }
-        }
-
-        override fun onMasstransitRoutesError(error: com.yandex.runtime.Error) {
-            onError(error)
-        }
-    }
-
-//    fun requestRoute2Points(startPoint: Point, endPoint: Point): Session {
-//        //Запуск
-//        val pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter()
-//
-//        //Создание запроса
-//        val requestPoints = arrayListOf(
-//            RequestPoint(startPoint, RequestPointType.WAYPOINT, null, null),
-//            RequestPoint(endPoint, RequestPointType.WAYPOINT, null, null)
-//        )
-//
-//        val pedestrianSession = pedestrianRouter.requestRoutes(requestPoints, TimeOptions(null, null), object : Session.RouteListener {
+//    inner class RouteFactory(
+//        private var route: PolylineMapObject?,
+//        private val color: Int = Color.DKGRAY,
+//        private val onError: (com.yandex.runtime.Error) -> Unit,
+//        private val onUpdateRoute: (PolylineMapObject) -> Unit) : Session.RouteListener {
 //            override fun onMasstransitRoutes(routes: MutableList<Route>) {
 //                if (routes.isNotEmpty()) {
-//                    // Удаляем предыдущий маршрут, если он существует
-//                    routeOfMap?.let {
+//                    //Удаляем предыдущий маршрут, если он существует
+//                    route?.let {
 //                        mapView.map.mapObjects.remove(it)
 //                    }
 //
-//                    routeOfMap = mapView.map.mapObjects.addPolyline(routes.first().geometry)
-//                    routeOfMap!!.setStrokeColor(Color.DKGRAY) // Цвет полилинии маршрута
+//                    route = mapView.map.mapObjects.addPolyline(routes.first().geometry)
+//                    route!!.setStrokeColor(color) //Цвет полилинии маршрута
+//                    onUpdateRoute(route!!)
 //                }
 //            }
 //
 //            override fun onMasstransitRoutesError(error: com.yandex.runtime.Error) {
-//                //Toast.makeText(context, "Ошибка при построении маршрута: ${error.toString()}", Toast.LENGTH_LONG).show()
+//                onError(error)
 //            }
-//        })
-//
-//        return pedestrianSession
-//    }
-//
-//    fun removeRouteOfMap() {
-//        routeOfMap?.let {
-//            mapView.map.mapObjects.remove(it)
-//            routeOfMap = null
-//        }
 //    }
 }
