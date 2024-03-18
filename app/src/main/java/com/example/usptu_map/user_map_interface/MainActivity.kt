@@ -1,4 +1,4 @@
-package com.example.usptu_map
+package com.example.usptu_map.user_map_interface
 
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -6,22 +6,26 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.usptu_map.R
 import com.example.usptu_map.databinding.ActivityMainBinding
-import com.example.usptu_map.map_operations.MapOperationsTools
+import com.example.usptu_map.map_operations.MapBordersHolder
 import com.example.usptu_map.map_operations.MapOprations
+import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
-import com.example.usptu_map.project_objects.ConstantsProject
-import com.example.usptu_map.project_objects.Сoordinates
+import com.example.usptu_map.project_objects.base_entities.coordinates.MapPoints
+import com.example.usptu_map.system.ConstantsProject
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
+import com.yandex.runtime.image.ImageProvider
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var mapOprations: MapOprations
-    private lateinit var mapOperationsTools: MapOperationsTools
+    private lateinit var mapBordersHolder: MapBordersHolder
     private lateinit var mapBorders: CameraListener
+    private lateinit var routeFactory: RouteFactory
     private lateinit var userLocation: UserLocation
 
     //Сессия маршрутов
@@ -34,9 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         mapOprations = MapOprations(bindingMainActivity)
-        mapOperationsTools = MapOperationsTools(bindingMainActivity.mapViewMain)
-        mapBorders = mapOprations.getMapBorders()
-        userLocation = UserLocation(bindingMainActivity, mapOprations)
+        mapBordersHolder = MapBordersHolder(bindingMainActivity.mapViewMain)
+        mapBorders = mapBordersHolder.getMapBorders()
+        routeFactory = RouteFactory(bindingMainActivity.mapViewMain)
+        userLocation = UserLocation(bindingMainActivity.mapViewMain, routeFactory)
 
         setContentView(bindingMainActivity.root)
 
@@ -68,7 +73,9 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             //Разрешения уже предоставлены, можно начинать отслеживание местоположения
-            userLocation.initUserLocation()
+            userLocation.initUserLocation(ImageProvider.fromResource(bindingMainActivity.root.context,
+                R.drawable.heart
+            ))
         }
     }
 
@@ -78,7 +85,9 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 //Разрешения предоставлены, начинаем отслеживание местоположения
-                userLocation.initUserLocation()
+                userLocation.initUserLocation(ImageProvider.fromResource(bindingMainActivity.root.context,
+                    R.drawable.heart
+                ))
             } else {
                 //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
             }
@@ -91,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.itemMakeRoute -> {
                     // Обработка выбора "Создать маршрут"
-                    userLocation.endPoint = Сoordinates.CORPUSES[2]
+                    userLocation.setEndPoint(MapPoints.CORPUSES[2])
                     userLocation.routingEnabled = true
 
                     pedestrianSession = userLocation.routingSession
@@ -99,7 +108,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemDeleteRoute -> {
                     userLocation.routingEnabled = false
 
-                    pedestrianSession = mapOprations.requestRoute2Points(Сoordinates.CORPUSES[1], Сoordinates.CORPUSES[8])
+                    pedestrianSession = routeFactory.requestRoute2Points(MapPoints.CORPUSES[1], MapPoints.CORPUSES[8]) {
+
+                    }
                 }
             }
             true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
@@ -122,7 +133,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() = with(bindingMainActivity) {
         //mapViewMain.mapWindow.map.removeCameraListener(mapBorders)
-        mapOprations.setDefaultLocation()
+        mapBordersHolder.setDefaultLocation()
 
         super.onPause()
     }

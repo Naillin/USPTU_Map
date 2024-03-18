@@ -1,24 +1,24 @@
-package com.example.usptu_map.project_objects
+package com.example.usptu_map.project_objects.base_entities.coordinates
 
 import com.yandex.mapkit.geometry.Point
 
-object PolygonsMarks {
+object PolygonsMapPoints {
     val firstCorpusArea = listOf(
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0002, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//ВЛ
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0004, Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00087),//ВП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0015, Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.0014),//НП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0023, Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00082),//КНП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0018, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.001),//КНЛ
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude + 0.0015, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0002, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//ВЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0004, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00087),//ВП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0015, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.0014),//НП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0023, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00082),//КНП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0018, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.001),//КНЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0015, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
 
     )
 
     val thirdCorpusArea = listOf(
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00036, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0038),//НЛ
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00056, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0015),//НП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.004, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00254),//ВП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0043, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0032),//ВВ
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.002, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0044),//ВЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00036, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0038),//НЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00056, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0015),//НП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.004, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00254),//ВП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0043, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0032),//ВВ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.002, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0044),//ВЛ
     )
 
     val fourthCorpusArea = listOf(
@@ -182,9 +182,9 @@ object PolygonsMarks {
     )
 
     val secondCorpusArea = listOf(
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0006, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.00077, Сoordinates.CENTER_USPTU_CITY_COORD.longitude - 0.00078),//НП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.0042, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
-        Point(Сoordinates.CENTER_USPTU_CITY_COORD.latitude - 0.004, Сoordinates.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0006, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00077, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00078),//НП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0042, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.004, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
     )
 }

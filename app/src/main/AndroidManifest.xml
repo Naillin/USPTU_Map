@@ -22,7 +22,7 @@
             android:value="ea56030a-0248-44aa-8ff3-132754a2c4a8"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".user_map_interface.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>

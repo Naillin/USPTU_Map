@@ -1,8 +1,8 @@
-package com.example.usptu_map.project_objects
+package com.example.usptu_map.project_objects.base_entities.coordinates
 
 import com.yandex.mapkit.geometry.Point
 
-object Сoordinates {
+object MapPoints {
     //Центр карты
     val CENTER_USPTU_CITY_COORD: Point = Point(54.818329, 56.058558)
 

@@ -1,8 +1,5 @@
 package com.example.usptu_map.map_operations
 
-import android.widget.Toast
-import com.example.usptu_map.R
-import com.example.usptu_map.databinding.ActivityMainBinding
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -13,40 +10,38 @@ import com.yandex.mapkit.location.LocationStatus
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.PlacemarkMapObject
+import com.yandex.mapkit.mapview.MapView
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
 
-class UserLocation(
-    private val binding: ActivityMainBinding,
-    private val mapOprations: MapOprations
-    //private val onLocationUpdateFunc: (() -> Unit)?
-) {
+class UserLocation(private val mapView: MapView, private val routeFactory: RouteFactory) {
     private var userLocation: Location? = null; public fun getUserLocation() = userLocation
 
     public var routingEnabled: Boolean = false
     public var routingSession: Session? = null
-    public var endPoint: Point = Point(0.0, 0.0)
+    private var endPoint: Point = Point(0.0, 0.0)
 
     private var userLocationPlacemark: PlacemarkMapObject? = null
-    private var mapObjects: MapObjectCollection? = null // Для хранения ссылки на коллекцию объектов карты
+    private var mapObjects: MapObjectCollection? = null //Для хранения ссылки на коллекцию объектов карты
+    //private val routeFactory: RouteFactory = RouteFactory(mapView)
 
-    fun initUserLocation() = with(binding) {
+    fun initUserLocation(imageProvider: ImageProvider){
         // Инициализируем mapObjects один раз, если это ещё не было сделано
         if (mapObjects == null) {
-            mapObjects = mapViewMain.map.mapObjects.addCollection()
+            mapObjects = mapView.map.mapObjects.addCollection()
         }
 
         // Создаём метку местоположения пользователя, если она ещё не была создана
         if (userLocationPlacemark == null) {
             userLocationPlacemark = mapObjects?.addPlacemark(Point(0.0, 0.0))
-            userLocationPlacemark?.setIcon(ImageProvider.fromResource(root.context, R.drawable.heart))
+            userLocationPlacemark?.setIcon(imageProvider)
         }
 
         // Подписываемся на обновления местоположения
         subscribeToLocationUpdates()
     }
 
-    private fun subscribeToLocationUpdates() = with(binding) {
+    private fun subscribeToLocationUpdates() {
         val locationManager = MapKitFactory.getInstance().createLocationManager()
         locationManager.subscribeForLocationUpdates(1.0, 1, 0.0, true, FilteringMode.OFF, object : LocationListener {
             override fun onLocationUpdated(location: Location) {
@@ -54,17 +49,23 @@ class UserLocation(
                 userLocation = location
                 userLocationPlacemark?.geometry = location.position
 
-                mapViewMain.map.move(CameraPosition(location.position, 30.0f, 150.0f, 30.0f), Animation(Animation.Type.LINEAR, 0.1F), null)
+                mapView.map.move(CameraPosition(location.position, 30.0f, 150.0f, 30.0f), Animation(Animation.Type.LINEAR, 0.1F), null)
 
                 if(routingEnabled) {
-                    routingSession = mapOprations.requestRoute2Points(location.position, endPoint)
+                    routingSession = routeFactory.requestRoute2Points(location.position, endPoint) {
+
+                    }
                 }
                 //onLocationUpdateFunc?.invoke()
             }
 
             override fun onLocationStatusUpdated(locationStatus: LocationStatus) {
-                // Обработка изменений статуса местоположения, если необходимо
+                //Обработка изменений статуса местоположения, если необходимо
             }
         })
+    }
+
+    public fun setEndPoint(point: Point) {
+        endPoint = point
     }
 }
