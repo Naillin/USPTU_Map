@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:title="Маршруты"
+        android:enabled="false"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/itemMakeRoute"
+            android:icon="@drawable/make_route"
+            android:title="От А до Б" />
+        <item
+            android:id="@+id/itemMakeLessonRoute"
+            android:icon="@drawable/lesson_route"
+            android:title="До текущего занятия" />
+    </group>
+
+    <item
+        android:title="Здания"
+        android:enabled="false"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/itemFirstCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="Первый корпус" />
+        <item
+            android:id="@+id/itemSecondCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="Второй корпус" />
+        <item
+            android:id="@+id/itemThirdCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="Третий корпус" />
+        <item
+            android:id="@+id/itemFourthCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="Четвертый корпус" />
+        <item
+            android:id="@+id/itemFiveCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="Пятый корпус" />
+        <item
+            android:id="@+id/itemFirstDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Первое общежитие" />
+        <item
+            android:id="@+id/itemSecondDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Второе общежитие" />
+        <item
+            android:id="@+id/itemThirdDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Третье общежитие" />
+        <item
+            android:id="@+id/itemFourthDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Четвертое общежитие" />
+        <item
+            android:id="@+id/itemFiveDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Пятое общежитие" />
+        <item
+            android:id="@+id/itemSixDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="Шестое общежитие" />
+    </group>
+</menu>

@@ -6,8 +6,8 @@ class AcademicBuilding(
     name: String,
     address: String,
     coordinates: ParcelablePoint,
-    val departments: List<String>, // Список кафедр
-    val availableRooms: Int, // Доступные аудитории
+    val departments: List<String> = listOf(), // Список кафедр
+    val availableRooms: Int = 0, // Доступные аудитории
     buildingPolygonPoints: List<ParcelablePoint> = listOf()
 ): Building(name, address, coordinates, "Academic", buildingPolygonPoints) {
     constructor(parcel: Parcel) : this(

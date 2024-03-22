@@ -1,72 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    tools:openDrawer="start"
     tools:context=".user_map_interface.MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewMain"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardViewBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewOptions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="50dp"
-            android:visibility="gone"
-            app:cardCornerRadius="15dp">
+            android:id="@+id/cardViewMain"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardViewBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewOptions"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="50dp"
+                android:visibility="gone"
+                app:cardCornerRadius="15dp">
 
-            </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.yandex.mapkit.mapview.MapView
+                android:id="@+id/mapViewMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:id="@+id/viewBlockMap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone" />
         </androidx.cardview.widget.CardView>
 
-        <com.yandex.mapkit.mapview.MapView
-            android:id="@+id/mapViewMain"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewBottom"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-        <View
-            android:id="@+id/viewBlockMap"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone" />
-    </androidx.cardview.widget.CardView>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:menu="@menu/bottom_menu">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewBottom"
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navViewMain"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_margin="20dp"
+        app:headerLayout="@layout/nav_menu_header"
+        app:menu="@menu/nav_menu" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavMain"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:menu="@menu/bottom_menu">
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

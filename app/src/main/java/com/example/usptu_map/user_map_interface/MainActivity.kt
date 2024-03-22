@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 //Разрешения предоставлены, начинаем отслеживание местоположения
-                userLocation.initUserLocation(ImageProvider.fromResource(bindingMainActivity.root.context,
+                userLocation.initUserLocation(ImageProvider.fromResource(
+                    bindingMainActivity.root.context,
                     R.drawable.heart
                 ))
             } else {
@@ -98,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     private fun initializationBottomMenu() = with(bindingMainActivity) {
         bottomNavMain.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.itemMakeRoute -> {
+                R.id.itemMakeRoute1 -> {
                     // Обработка выбора "Создать маршрут"
                     userLocation.setEndPoint(MapPoints.CORPUSES[2])
                     userLocation.routingEnabled = true
