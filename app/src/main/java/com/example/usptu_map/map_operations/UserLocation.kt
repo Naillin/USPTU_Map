@@ -1,13 +1,11 @@
 package com.example.usptu_map.map_operations
 
-import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.FilteringMode
 import com.yandex.mapkit.location.Location
 import com.yandex.mapkit.location.LocationListener
 import com.yandex.mapkit.location.LocationStatus
-import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.mapview.MapView
@@ -49,7 +47,7 @@ class UserLocation(private val mapView: MapView, private val routeFactory: Route
                 userLocation = location
                 userLocationPlacemark?.geometry = location.position
 
-                mapView.map.move(CameraPosition(location.position, 30.0f, 150.0f, 30.0f), Animation(Animation.Type.LINEAR, 0.1F), null)
+                //mapView.map.move(CameraPosition(location.position, 30.0f, 150.0f, 30.0f), Animation(Animation.Type.LINEAR, 0.1F), null)
 
                 if(routingEnabled) {
                     routingSession = routeFactory.requestRoute2Points(location.position, endPoint) {

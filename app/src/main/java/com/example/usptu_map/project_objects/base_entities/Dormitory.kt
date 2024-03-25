@@ -3,9 +3,9 @@ package com.example.usptu_map.project_objects.base_entities
 import android.os.Parcel
 
 class Dormitory(
-    name: String,
-    address: String,
-    coordinates: ParcelablePoint,
+    name: String = "default",
+    address: String= "default",
+    coordinates: ParcelablePoint = ParcelablePoint(0.0, 0.0), // Широта и долгота,
     val capacity: Int = 0, // Вместимость общежития
     buildingPolygonPoints: List<ParcelablePoint> = listOf()
 ): Building(name, address, coordinates, "Dormitory", buildingPolygonPoints) {

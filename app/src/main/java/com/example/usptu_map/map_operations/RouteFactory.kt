@@ -56,7 +56,7 @@ class RouteFactory(private val mapView: MapView) {
         return pedestrianSession as Session
     }
 
-    private fun removeAllRoutes() {
+    public fun removeAllRoutes() {
         routesCollection?.clear() // Удаляем все маршруты из коллекции
     }
 

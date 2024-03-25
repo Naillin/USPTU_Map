@@ -24,7 +24,6 @@ class MapOprations(private val binding: ActivityMainBinding) {
     }
 
     fun startPointMaps() = with(binding) {
-        viewBlockMap.visibility = android.view.View.VISIBLE
         mapViewMain.map.isZoomGesturesEnabled = false
 
         mapViewMain.map.move(

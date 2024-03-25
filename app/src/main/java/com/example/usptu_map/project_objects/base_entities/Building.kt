@@ -8,7 +8,7 @@ open class Building(
     val address: String = "default",
     val coordinates: ParcelablePoint = ParcelablePoint(0.0, 0.0), // Широта и долгота
     val type: String = "default",
-    var buildingPolygonPoints: List<ParcelablePoint> = listOf()
+    val buildingPolygonPoints: List<ParcelablePoint> = listOf()
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "default", // Обработка null с использованием Элвис-оператора

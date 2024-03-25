@@ -17,62 +17,18 @@
             android:layout_height="0dp"
             android:layout_margin="5dp"
             app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toTopOf="@+id/cardViewBottom"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewOptions"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="50dp"
-                android:visibility="gone"
-                app:cardCornerRadius="15dp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </FrameLayout>
-            </androidx.cardview.widget.CardView>
 
             <com.yandex.mapkit.mapview.MapView
                 android:id="@+id/mapViewMain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <View
-                android:id="@+id/viewBlockMap"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:visibility="gone" />
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewBottom"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="5dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavMain"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:menu="@menu/bottom_menu">
-
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
-        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

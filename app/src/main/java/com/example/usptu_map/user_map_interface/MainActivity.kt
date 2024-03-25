@@ -2,7 +2,6 @@ package com.example.usptu_map.user_map_interface
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -12,7 +11,7 @@ import com.example.usptu_map.map_operations.MapBordersHolder
 import com.example.usptu_map.map_operations.MapOprations
 import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
-import com.example.usptu_map.project_objects.base_entities.coordinates.MapPoints
+import com.example.usptu_map.project_objects.base_entities.coordinates.MapPoints.academicBuildings
 import com.example.usptu_map.system.ConstantsProject
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.map.CameraListener
@@ -48,9 +47,8 @@ class MainActivity : AppCompatActivity() {
         mapOprations.startPointMaps()
         mapOprations.polygonsOfMap()
         mapOprations.customPlacemarksOfMap()
-        bindingMainActivity.viewBlockMap.visibility = View.GONE
-        initializationBottomMenu()
 
+        initializationNavMenu()
         //WebParsing().getParseData() // не робит
     }
 
@@ -73,7 +71,8 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             //Разрешения уже предоставлены, можно начинать отслеживание местоположения
-            userLocation.initUserLocation(ImageProvider.fromResource(bindingMainActivity.root.context,
+            userLocation.initUserLocation(ImageProvider.fromResource(
+                bindingMainActivity.root.context,
                 R.drawable.heart
             ))
         }
@@ -95,26 +94,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //Запуск нижнего меню
-    private fun initializationBottomMenu() = with(bindingMainActivity) {
-        bottomNavMain.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.itemMakeRoute1 -> {
-                    // Обработка выбора "Создать маршрут"
-                    userLocation.setEndPoint(MapPoints.CORPUSES[2])
-                    userLocation.routingEnabled = true
-
-                    pedestrianSession = userLocation.routingSession
-                }
-                R.id.itemDeleteRoute -> {
+    private fun initializationNavMenu() = with(bindingMainActivity) {
+        navViewMain.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.itemMakeRoute -> {
+                    routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = false
 
-                    pedestrianSession = routeFactory.requestRoute2Points(MapPoints.CORPUSES[1], MapPoints.CORPUSES[8]) {
+                }
+                R.id.itemMakeLessonRoute -> {
 
-                    }
+                    //ПОЛУЧИТЬ ИНФОРМАЦИЮ О ПАРАХ
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[0].coordinates.toMapKitPoint())
+
+
+                }
+                R.id.itemFirstCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[0].coordinates.toMapKitPoint())
+                }
+                R.id.itemSecondCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[1].coordinates.toMapKitPoint())
+                }
+                R.id.itemThirdCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[2].coordinates.toMapKitPoint())
+                }
+                R.id.itemFourthCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[3].coordinates.toMapKitPoint())
                 }
             }
-            true // Возвращаем true, чтобы отобразить выбранный элемент как выбранный
+            true
         }
     }
 

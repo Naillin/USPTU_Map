@@ -3,9 +3,9 @@ package com.example.usptu_map.project_objects.base_entities
 import android.os.Parcel
 
 class AcademicBuilding(
-    name: String,
-    address: String,
-    coordinates: ParcelablePoint,
+    name: String = "default",
+    address: String = "deafult",
+    coordinates: ParcelablePoint = ParcelablePoint(0.0, 0.0), // Широта и долгота
     val departments: List<String> = listOf(), // Список кафедр
     val availableRooms: Int = 0, // Доступные аудитории
     buildingPolygonPoints: List<ParcelablePoint> = listOf()
