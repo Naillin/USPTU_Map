@@ -2,6 +2,7 @@ package com.example.usptu_map.user_map_interface
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,16 +15,18 @@ import com.example.usptu_map.map_operations.MapBordersHolder
 import com.example.usptu_map.map_operations.MapOprations
 import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
+import com.example.usptu_map.map_operations.UserLocationUpdateListener
 import com.example.usptu_map.project_objects.coordinates.MapPoints.academicBuildings
 import com.example.usptu_map.system.ConstantsProject
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.location.Location
 import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     private lateinit var bindingMainActivity: ActivityMainBinding
     private lateinit var mapOprations: MapOprations
     private lateinit var mapBordersHolder: MapBordersHolder
@@ -83,6 +86,7 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             //Разрешения уже предоставлены, можно начинать отслеживание местоположения
+            userLocation.setLocationListener(this@MainActivity)
             userLocation.initUserLocation(ImageProvider.fromResource(
                 bindingMainActivity.root.context,
                 R.drawable.heart
@@ -98,6 +102,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                 //Разрешения предоставлены, начинаем отслеживание местоположения
+                userLocation.setLocationListener(this@MainActivity)
                 userLocation.initUserLocation(ImageProvider.fromResource(
                     bindingMainActivity.root.context,
                     R.drawable.heart
@@ -105,6 +110,16 @@ class MainActivity : AppCompatActivity() {
             } else {
                 //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
             }
+        }
+    }
+
+    /**
+     * Уведомеление о статусе местоположения
+     */
+    override fun onLocationUpdated(location: Location) = with(bindingMainActivity) {
+        runOnUiThread {
+            cardViewStatus.setCardBackgroundColor(Color.GREEN)
+            textViewStatus.text = "Местоположение определено"
         }
     }
 
@@ -155,7 +170,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun functionForBuildings(building: Point) {
-        if(userLocation.getUserLocation() != null) {
+        val from = userLocation.getUserLocation()
+        if(from != null) {
             if(!userLocation.checkDistance(building, 1000F)) {
                 routeFactory.removeAllRoutes()
                 userLocation.routingEnabled = true
@@ -166,9 +182,8 @@ class MainActivity : AppCompatActivity() {
                     "Далековато...",
                     "Кажется вы очень далеко от студенческого городка.\nМы можем предложить вам заказать такси или проложить маршрут с помощью 2ГИС до точки?",
                     SomeTools.AlertDialogAction("2GIS") { _, _ ->
-                        val from = userLocation.getUserLocation()
                         val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse("dgis://2gis.ru/routeSearch/rsType/ctx/from/${from!!.position.longitude},${from.position.latitude}/to/${building.longitude},${building.latitude}")
+                            data = Uri.parse("dgis://2gis.ru/routeSearch/rsType/ctx/from/${from.position.longitude},${from.position.latitude}/to/${building.longitude},${building.latitude}")
                             setPackage("ru.dublgis.dgismobile")
                         }
 

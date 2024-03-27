@@ -16,6 +16,9 @@ import com.yandex.runtime.image.ImageProvider
  * Класс описывающий отслеживание местоположение пользователя
  */
 class UserLocation(private val mapView: MapView, private val routeFactory: RouteFactory) {
+    private var userLocationUpdateListener: UserLocationUpdateListener? = null;
+    public fun setLocationListener(listener: UserLocationUpdateListener) { userLocationUpdateListener = listener }
+
     public var routingEnabled: Boolean = false
     private var userLocation: Location? = null; public fun getUserLocation() = userLocation
     private var routingSession: Session? = null; public fun getRoutingSession() = routingSession
@@ -62,7 +65,7 @@ class UserLocation(private val mapView: MapView, private val routeFactory: Route
 
                     }
                 }
-                //onLocationUpdateFunc?.invoke()
+                userLocationUpdateListener?.onLocationUpdated(location)
             }
 
             override fun onLocationStatusUpdated(locationStatus: LocationStatus) {
