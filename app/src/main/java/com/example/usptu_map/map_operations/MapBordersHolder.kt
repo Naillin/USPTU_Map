@@ -1,6 +1,6 @@
 package com.example.usptu_map.map_operations
 
-import com.example.usptu_map.project_objects.base_entities.coordinates.MapPoints
+import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraListener

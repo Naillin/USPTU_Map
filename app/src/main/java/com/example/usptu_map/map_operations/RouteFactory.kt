@@ -12,11 +12,17 @@ import com.yandex.mapkit.transport.masstransit.Route
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.mapkit.transport.masstransit.TimeOptions
 
+/**
+ * Класс описывающий формирование маршрутов на карте
+ */
 class RouteFactory(private val mapView: MapView) {
     private var routesCollection: MapObjectCollection? = mapView.map.mapObjects.addCollection()
     private var routeOfMap: PolylineMapObject? = null
     private var pedestrianSession: Session? = null
 
+    /**
+     * Метод построения маршрута из точки A в точку B
+     */
     public fun requestRoute2Points(
         startPoint: Point,
         endPoint: Point,
@@ -56,10 +62,16 @@ class RouteFactory(private val mapView: MapView) {
         return pedestrianSession as Session
     }
 
+    /**
+     * Удаление всех маршрутов в колекции
+     */
     public fun removeAllRoutes() {
         routesCollection?.clear() // Удаляем все маршруты из коллекции
     }
 
+    /**
+     * Удаление текущего маршрута
+     */
     private fun removeCurrentRoute() {
         routeOfMap?.let {
             mapView.map.mapObjects.remove(it)
@@ -67,7 +79,10 @@ class RouteFactory(private val mapView: MapView) {
         }
     }
 
+    /**
+     * Закрытие сессии построения маршрутов
+     */
     public fun cancelRouteSession() {
-        pedestrianSession?.cancel() // Отменяем текущую сессию
+        pedestrianSession?.cancel()
     }
 }

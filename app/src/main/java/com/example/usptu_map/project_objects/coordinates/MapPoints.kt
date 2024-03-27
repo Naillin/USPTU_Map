@@ -1,10 +1,10 @@
-package com.example.usptu_map.project_objects.base_entities.coordinates
+package com.example.usptu_map.project_objects.coordinates
 
 import com.example.usptu_map.project_objects.base_entities.AcademicBuilding
 import com.example.usptu_map.project_objects.base_entities.Building
 import com.example.usptu_map.project_objects.base_entities.Dormitory
 import com.example.usptu_map.project_objects.base_entities.ParcelablePoint
-import com.example.usptu_map.project_objects.base_entities.coordinates.PolygonsMapPoints.firstCorpusArea
+import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.firstCorpusArea
 import com.yandex.mapkit.geometry.Point
 
 object MapPoints {
@@ -60,7 +60,8 @@ object MapPoints {
         Dormitory("Dormitory 2", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[1]), 0),
         Dormitory("Dormitory 3", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[2]), 0),
         Dormitory("Dormitory 4", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[3]), 0),
-        Dormitory("Educational and Housing Complex", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[4]), 0),
+        Dormitory("Educational and Housing Complex", "default", ParcelablePoint.fromMapKitPoint(
+            UNIVERSITY_DORMITORY[4]), 0),
         Dormitory("Dormitory 5", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[5]), 0),
         Dormitory("Dormitory 6", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[6]), 0),
         Dormitory("Dormitory 10", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[7]), 0)

@@ -2,9 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <queries>
+        <package android:name="ru.dublgis.dgismobile" />
+        <package android:name="ru.yandex.taxi" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -16,15 +21,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.USPTU_Map"
         tools:targetApi="31">
+        <activity
+            android:name=".user_map_interface.TwoPointsRouteActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="ea56030a-0248-44aa-8ff3-132754a2c4a8"/>
+            android:value="ea56030a-0248-44aa-8ff3-132754a2c4a8" />
 
         <activity
             android:name=".user_map_interface.MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

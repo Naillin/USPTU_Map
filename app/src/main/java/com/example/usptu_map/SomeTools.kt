@@ -2,8 +2,10 @@ package com.example.usptu_map
 
 import android.content.Context
 import android.content.DialogInterface
+import android.view.Gravity
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
@@ -97,4 +99,24 @@ class SomeTools(private val context: Context) {
         snackbar.show()
     }
 
+    /**
+     * Отображает настраиваемый тост.
+     *
+     * @param message Сообщение для отображения.
+     * @param duration Длительность отображения. Используйте Toast.LENGTH_SHORT или Toast.LENGTH_LONG.
+     * @param position Позиция на экране. Используйте одну из констант Gravity, например Gravity.CENTER.
+     * @param xOffset Смещение по оси X относительно позиции.
+     * @param yOffset Смещение по оси Y относительно позиции.
+     */
+    fun showToast(
+        message: String = "default",
+        duration: Int = Toast.LENGTH_SHORT,
+        position: Int = Gravity.BOTTOM,
+        xOffset: Int = 0,
+        yOffset: Int = 0
+    ) {
+        val toast = Toast.makeText(context, message, duration)
+        toast.setGravity(position, xOffset, yOffset)
+        toast.show()
+    }
 }

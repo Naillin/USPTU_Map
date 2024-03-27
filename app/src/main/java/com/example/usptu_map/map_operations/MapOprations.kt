@@ -3,8 +3,8 @@ package com.example.usptu_map.map_operations
 import androidx.core.content.ContextCompat
 import com.example.usptu_map.R
 import com.example.usptu_map.databinding.ActivityMainBinding
-import com.example.usptu_map.project_objects.base_entities.coordinates.MapPoints
-import com.example.usptu_map.project_objects.base_entities.coordinates.PolygonsMapPoints
+import com.example.usptu_map.project_objects.coordinates.MapPoints
+import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.map.CameraPosition
 
