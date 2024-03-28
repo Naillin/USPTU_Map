@@ -5,6 +5,8 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -16,8 +18,11 @@ import com.example.usptu_map.map_operations.MapOprations
 import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
 import com.example.usptu_map.map_operations.UserLocationUpdateListener
+import com.example.usptu_map.project_objects.base_entities.Building
 import com.example.usptu_map.project_objects.coordinates.MapPoints.academicBuildings
 import com.example.usptu_map.system.ConstantsProject
+import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
+import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.Location
@@ -56,6 +61,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
         mapOprations.customPlacemarksOfMap()
 
         initializationNavMenu()
+        launchersPack()
         //WebParsing().getParseData() // не робит
     }
 
@@ -134,6 +140,8 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = false
 
+                    val intent = Intent(this@MainActivity, TwoPointsRouteActivity::class.java)
+                    twoPointsActivityLauncher?.launch(intent)
                 }
                 R.id.itemMakeLessonRoute -> {
 
@@ -222,6 +230,26 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     }
 
     /**
+     * Комплект лаунчеров текущего Activity
+     */
+    private var twoPointsActivityLauncher: ActivityResultLauncher<Intent>? = null
+    private fun launchersPack() {
+        //возвращение ответа из edit activity
+        twoPointsActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if(it.resultCode == RESULT_OK) {
+                // Получение данных из интента
+                val data: Intent? = it.data
+                val value1 = data?.getParcelableExtra<Building>(INTENT_KEY1)
+                val value2 = data?.getParcelableExtra<Building>(INTENT_KEY2)
+
+                routeFactory.requestRoute2Points(value1!!.coordinates.toMapKitPoint(), value2!!.coordinates.toMapKitPoint()) {
+
+                }
+            }
+        }
+    }
+
+    /**
      * Описание методов жизненого цикла Activity
      */
     override fun onStart() = with(bindingMainActivity) {
@@ -235,11 +263,11 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     override fun onResume() = with(bindingMainActivity) {
         super.onResume()
 
-        //mapViewMain.mapWindow.map.addCameraListener(mapBorders)
+        mapViewMain.mapWindow.map.addCameraListener(mapBorders)
     }
 
     override fun onPause() = with(bindingMainActivity) {
-        //mapViewMain.mapWindow.map.removeCameraListener(mapBorders)
+        mapViewMain.mapWindow.map.removeCameraListener(mapBorders)
         mapBordersHolder.setDefaultLocation()
 
         super.onPause()

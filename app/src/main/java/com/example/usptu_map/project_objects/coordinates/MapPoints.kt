@@ -17,7 +17,7 @@ object MapPoints {
 
     val DINING_ROOM :Point = Point(54.816945,56.059144)
     val universityBildings = listOf( //закрепить полигоны из PolygonsMapPoints
-        Building("Жральня", "default", ParcelablePoint.fromMapKitPoint(DINING_ROOM), "dining", )
+        Building("Жральня", "default", ParcelablePoint.fromMapKitPoint(DINING_ROOM), "dining")
     )
 
     //КОРПУСА
@@ -66,4 +66,10 @@ object MapPoints {
         Dormitory("Dormitory 6", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[6]), 0),
         Dormitory("Dormitory 10", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[7]), 0)
     )
+
+    val combinedBuildingList = listOf(
+        universityBildings,
+        academicBuildings,
+        universityDormitories
+    ).flatten() //Объединит все выбранные элементы в один список
 }
