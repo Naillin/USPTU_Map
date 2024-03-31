@@ -4,66 +4,86 @@
     tools:showIn="navigation_view">
 
     <item
-        android:title="Маршруты"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:title="@string/routs" />
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/itemMakeRoute"
             android:icon="@drawable/make_route"
-            android:title="От А до Б" />
+            android:title="@string/rout_A_B" />
         <item
             android:id="@+id/itemMakeLessonRoute"
             android:icon="@drawable/lesson_route"
-            android:title="До текущего занятия" />
+            android:title="@string/to_the_current_building" />
     </group>
 
     <item
-        android:title="Здания"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:title="@string/buildings" />
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/itemFirstCorpus"
             android:icon="@drawable/academic_building"
-            android:title="Первый корпус" />
+            android:title="@string/first_corpus" />
         <item
             android:id="@+id/itemSecondCorpus"
             android:icon="@drawable/academic_building"
-            android:title="Второй корпус" />
+            android:title="@string/second_corpus" />
         <item
             android:id="@+id/itemThirdCorpus"
             android:icon="@drawable/academic_building"
-            android:title="Третий корпус" />
+            android:title="@string/third_corpus" />
         <item
             android:id="@+id/itemFourthCorpus"
             android:icon="@drawable/academic_building"
-            android:title="Четвертый корпус" />
+            android:title="@string/fourth_corpus" />
         <item
-            android:id="@+id/itemFiveCorpus"
+            android:id="@+id/itemSevenCorpus"
             android:icon="@drawable/academic_building"
-            android:title="Пятый корпус" />
+            android:title="@string/seven_corpus" />
+        <item
+            android:id="@+id/ItemEightCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="@string/eight_corpus" />
+        <item
+            android:id="@+id/ItemElevenCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="@string/eleven_corpus" />
+        <item
+            android:id="@+id/ItemUfkOneCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="@string/ufkOne_corpus" />
+        <item
+            android:id="@+id/ItemUfkTwoCorpus"
+            android:icon="@drawable/academic_building"
+            android:title="@string/ufkTwo_corpus" />
         <item
             android:id="@+id/itemFirstDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Первое общежитие" />
+            android:title="@string/first_dormitory" />
         <item
             android:id="@+id/itemSecondDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Второе общежитие" />
+            android:title="@string/second_dormitory" />
         <item
             android:id="@+id/itemThirdDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Третье общежитие" />
+            android:title="@string/third_dormitory" />
         <item
             android:id="@+id/itemFourthDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Четвертое общежитие" />
+            android:title="@string/fourth_dormitory" />
         <item
             android:id="@+id/itemFiveDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Пятое общежитие" />
+            android:title="@string/five_dormitory" />
         <item
             android:id="@+id/itemSixDormitory"
             android:icon="@drawable/dormitory"
-            android:title="Шестое общежитие" />
+            android:title="@string/six_dormitory" />
+        <item
+            android:id="@+id/ItemTenDormitory"
+            android:icon="@drawable/dormitory"
+            android:title="@string/ten_dormitory" />
     </group>
 </menu>

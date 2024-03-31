@@ -2,4 +2,24 @@
     <string name="app_name">USPTU_Map</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_corpus">Первый корпус</string>
+    <string name="second_corpus">Второй корпус</string>
+    <string name="third_corpus">Третий корпус</string>
+    <string name="fourth_corpus">Четвертый корпус</string>
+    <string name="seven_corpus">Седьмой корпус</string>
+    <string name="eight_corpus">Восьмой корпус</string>
+    <string name="eleven_corpus">Одинадцатый корпус</string>
+    <string name="ufkOne_corpus">УФК-1</string>
+    <string name="ufkTwo_corpus">УФК-2</string>
+    <string name="first_dormitory">Общежитие №1</string>
+    <string name="second_dormitory">Общежитие №2</string>
+    <string name="third_dormitory">Общежитие №3</string>
+    <string name="fourth_dormitory">Общежитие №4</string>
+    <string name="five_dormitory">Общежитие №5</string>
+    <string name="six_dormitory">Общежитие №6</string>
+    <string name="ten_dormitory">Общежитие №10</string>
+    <string name="routs">Маршруты</string>
+    <string name="buildings">Здания</string>
+    <string name="rout_A_B">От А до Б</string>
+    <string name="to_the_current_building">До текущего здания</string>
 </resources>

@@ -12,6 +12,12 @@ object PolygonsMapPoints {
         Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0015, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
 
     )
+    val secondCorpusArea = listOf(
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0006, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00077, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00078),//НП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0042, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.004, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
+    )
 
     val thirdCorpusArea = listOf(
         Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00036, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0038),//НЛ
@@ -55,18 +61,11 @@ object PolygonsMapPoints {
         Point(54.818188,56.059308),
     )
 
-    val elevenCorpus=listOf(
-        Point(54.817590,56.058458),
-        Point(54.817231,56.058566),
-        Point(54.817303,56.059201),
-        Point(54.817644,56.059119),
-    )
-
-    val ufkTwoCorpus=listOf(
-        Point(54.815591,56.060042),
-        Point(54.815640,56.060481),
-        Point(54.814709,56.060749),
-        Point(54.814642,56.060276),
+    val secondCorpus=listOf(
+        Point(54.817566,56.061141),
+        Point(54.816721,56.061421),
+        Point(54.816766,56.061843),
+        Point(54.817645,56.061587),
     )
 
     val thirdCorpus=listOf(
@@ -74,13 +73,6 @@ object PolygonsMapPoints {
         Point(54.817561,56.060290),
         Point(54.817738,56.062259),
         Point(54.817981,56.062191),
-    )
-
-    val secondCorpus=listOf(
-        Point(54.817566,56.061141),
-        Point(54.816721,56.061421),
-        Point(54.816766,56.061843),
-        Point(54.817645,56.061587),
     )
 
     val fourthCorpus=listOf(
@@ -108,6 +100,29 @@ object PolygonsMapPoints {
         Point(54.819506,56.067586),
         Point(54.819371,56.068070),
         Point(54.818943,56.068289),
+    )
+
+    val elevenCorpus=listOf(
+        Point(54.817590,56.058458),
+        Point(54.817231,56.058566),
+        Point(54.817303,56.059201),
+        Point(54.817644,56.059119),
+    )
+
+    val ufkOneCorpus=listOf(
+        Point(54.816173,56.059500),
+        Point(54.816259,56.060321),
+        Point(54.815719,56.060495),
+        Point(54.815679,56.060119),
+        Point(54.815984,56.060004),
+        Point(54.815942,56.059563),
+    )
+
+    val ufkTwoCorpus=listOf(
+        Point(54.815591,56.060042),
+        Point(54.815640,56.060481),
+        Point(54.814709,56.060749),
+        Point(54.814642,56.060276),
     )
 
     val firstDormitory=listOf(
@@ -142,6 +157,13 @@ object PolygonsMapPoints {
         Point(54.816698,56.060891),
     )
 
+    val fiveDormitory=listOf(
+        Point(54.815537,56.061495),
+        Point(54.814867,56.061708),
+        Point(54.814884,56.061953),
+        Point(54.815567,56.061757),
+    )
+
     val sixDormitory=listOf(
         Point(54.816220,56.061898),
         Point(54.816245,56.062201),
@@ -163,28 +185,5 @@ object PolygonsMapPoints {
         Point(54.816740,56.058643),
         Point(54.816845,56.059514),
         Point(54.817239,56.059391),
-    )
-
-    val fiveDormitory=listOf(
-        Point(54.815537,56.061495),
-        Point(54.814867,56.061708),
-        Point(54.814884,56.061953),
-        Point(54.815567,56.061757),
-    )
-
-    val ufkOneCorpus=listOf(
-        Point(54.816173,56.059500),
-        Point(54.816259,56.060321),
-        Point(54.815719,56.060495),
-        Point(54.815679,56.060119),
-        Point(54.815984,56.060004),
-        Point(54.815942,56.059563),
-    )
-
-    val secondCorpusArea = listOf(
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0006, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0013),//НЛ
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.00077, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00078),//НП
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0042, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00029),//ВП
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.004, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.0024),//ВЛ
     )
 }
