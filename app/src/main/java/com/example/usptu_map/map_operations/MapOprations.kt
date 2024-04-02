@@ -34,15 +34,16 @@ class MapOprations(private val binding: ActivityMainBinding) {
     }
 
     fun customPlacemarksOfMap() {
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[0], R.drawable.heart) //заменять текст иконками в которые интегрирован текст
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[1], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[2], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[3], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[4], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[5], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[6], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[7], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[8], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[0], R.drawable.heart) //заменять текст иконками в которые интегрирован текст
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[1], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[2], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[3], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[4], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[5], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[6], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[7], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[8], R.drawable.heart)
+
 
     }
 
