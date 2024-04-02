@@ -20,6 +20,7 @@ import com.example.usptu_map.map_operations.UserLocation
 import com.example.usptu_map.map_operations.UserLocationUpdateListener
 import com.example.usptu_map.project_objects.base_entities.Building
 import com.example.usptu_map.project_objects.coordinates.MapPoints.academicBuildings
+import com.example.usptu_map.project_objects.coordinates.MapPoints.universityDormitories
 import com.example.usptu_map.system.ConstantsProject
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
@@ -171,6 +172,68 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[3].coordinates.toMapKitPoint())
+                }
+                R.id.itemSevenCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[4].coordinates.toMapKitPoint())
+                }
+                R.id.ItemEightCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[5].coordinates.toMapKitPoint())
+                }
+                R.id.ItemElevenCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[6].coordinates.toMapKitPoint())
+                }
+                R.id.ItemUfkOneCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[7].coordinates.toMapKitPoint())
+                }
+                R.id.ItemUfkTwoCorpus -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(academicBuildings[8].coordinates.toMapKitPoint())
+                }
+
+                //ОБЩЕЖИТИЯ
+                R.id.itemFirstDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[0].coordinates.toMapKitPoint())
+                }
+                R.id.itemSecondDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[1].coordinates.toMapKitPoint())
+                }
+                R.id.itemThirdDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[2].coordinates.toMapKitPoint())
+                }
+                R.id.itemFourthDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[3].coordinates.toMapKitPoint())
+                }
+                R.id.itemFiveDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[4].coordinates.toMapKitPoint())
+                }
+                R.id.itemSixDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[5].coordinates.toMapKitPoint())
+                }
+                R.id.ItemTenDormitory -> {
+                    routeFactory.removeAllRoutes()
+                    userLocation.routingEnabled = true
+                    userLocation.setEndPoint(universityDormitories[0].coordinates.toMapKitPoint())
                 }
             }
             true
