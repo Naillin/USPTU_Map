@@ -8,8 +8,8 @@ object PolygonsMapPoints {
         Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude - 0.0004, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00087),//ВП
         Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0015, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.0014),//НП
         Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0023, MapPoints.CENTER_USPTU_CITY_COORD.longitude - 0.00082),//КНП
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0018, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.001),//КНЛ
-        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0015, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.00178, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00109),//КНЛ
+        Point(MapPoints.CENTER_USPTU_CITY_COORD.latitude + 0.0014, MapPoints.CENTER_USPTU_CITY_COORD.longitude + 0.00085),//НЛ
 
     )
     val secondCorpusArea = listOf(
@@ -49,8 +49,8 @@ object PolygonsMapPoints {
         Point(54.818663,56.058338),
         Point(54.818611,56.057800),
         Point(54.818830,56.057758),
-        Point(54.818815,56.057387),
-        Point(54.818022,56.057648),
+        Point(54.818809,56.057465),
+        Point(54.818024,56.057690),
         Point(54.818057,56.057965),
         Point(54.818403,56.057898),
         Point(54.818464,56.058242),
@@ -72,7 +72,7 @@ object PolygonsMapPoints {
         Point(54.817786,56.060239),
         Point(54.817561,56.060290),
         Point(54.817738,56.062259),
-        Point(54.817981,56.062191),
+        Point(54.817960,56.062179),
     )
 
     val fourthCorpus=listOf(

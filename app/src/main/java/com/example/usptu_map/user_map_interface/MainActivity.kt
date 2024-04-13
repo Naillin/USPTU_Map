@@ -61,6 +61,8 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
         mapOprations.polygonsOfMap()
         mapOprations.customPlacemarksOfMap()
 
+
+
         initializationNavMenu()
         launchersPack()
         //WebParsing().getParseData() // не робит
