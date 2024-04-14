@@ -67,7 +67,7 @@ class MapOprations(private val binding: ActivityMainBinding)  {
                 override fun onMapObjectTap(p0: com.yandex.mapkit.map.MapObject, p1: com.yandex.mapkit.geometry.Point): Boolean {
                     if (p0 is PlacemarkMapObject) {
                         // Действия при нажатии на метку
-                        Log.d("PlacemarkFactory", "Вы нажали на метку:")
+                        Log.d("PlacemarkFactory", "Вы нажали на метку")
                         return true
                     }
                     return false
@@ -106,4 +106,5 @@ class MapOprations(private val binding: ActivityMainBinding)  {
             polygonFactory.addPolygonOnMap(fourthCorpusArea, ContextCompat.getColor(root.context, R.color.light_blue))
         }
     }
+
 }
