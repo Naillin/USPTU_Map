@@ -158,86 +158,103 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 
                 //ГРУППА - ЗДАНИЯ
                 R.id.itemFirstCorpus -> {
-                    functionForBuildings(academicBuildings[0].coordinates.toMapKitPoint())
+                    functionForBuildings(academicBuildings[0].coordinates.toMapKitPoint()) //ДЕЛАЙ ТАК!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
                 R.id.itemSecondCorpus -> {
+                    // ЧТО ЭТО БЛЯТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[1].coordinates.toMapKitPoint())
                 }
                 R.id.itemThirdCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[2].coordinates.toMapKitPoint())
                 }
                 R.id.itemFourthCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[3].coordinates.toMapKitPoint())
                 }
                 R.id.itemSevenCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[4].coordinates.toMapKitPoint())
                 }
                 R.id.ItemEightCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[5].coordinates.toMapKitPoint())
                 }
                 R.id.ItemElevenCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[6].coordinates.toMapKitPoint())
                 }
                 R.id.ItemUfkOneCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[7].coordinates.toMapKitPoint())
                 }
                 R.id.ItemUfkTwoCorpus -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(academicBuildings[8].coordinates.toMapKitPoint())
                 }
 
-                //ОБЩЕЖИТИЯ
+                //ГРУППА - ОБЩЕЖИТИЯ
                 R.id.itemFirstDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[0].coordinates.toMapKitPoint())
                 }
                 R.id.itemSecondDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[1].coordinates.toMapKitPoint())
                 }
                 R.id.itemThirdDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[2].coordinates.toMapKitPoint())
                 }
                 R.id.itemFourthDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[3].coordinates.toMapKitPoint())
                 }
                 R.id.itemFiveDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[4].coordinates.toMapKitPoint())
                 }
                 R.id.itemSixDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[5].coordinates.toMapKitPoint())
                 }
                 R.id.ItemTenDormitory -> {
+                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(universityDormitories[0].coordinates.toMapKitPoint())
                 }
             }
+
+            drawerLayoutMain.closeDrawers()
             true
         }
     }
@@ -245,10 +262,12 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     private fun functionForBuildings(building: Point) {
         val from = userLocation.getUserLocation()
         if(from != null) {
+
             if(!userLocation.checkDistance(building, 1000F)) {
                 routeFactory.removeAllRoutes()
                 userLocation.routingEnabled = true
                 userLocation.setEndPoint(building)
+                userLocation.useExistingDataForRouting()
             }
             else {
                 SomeTools(this@MainActivity).createAlertDialogMultiActions(

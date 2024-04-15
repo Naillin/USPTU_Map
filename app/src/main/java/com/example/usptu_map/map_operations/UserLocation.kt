@@ -75,6 +75,17 @@ class UserLocation(private val mapView: MapView, private val routeFactory: Route
     }
 
     /**
+     * Построение маршрута на основе текущих данных о месположении пользователя
+     */
+    public fun useExistingDataForRouting() {
+        if (userLocation != null) {
+            routeFactory.requestRoute2Points(userLocation!!.position , endPoint) {
+
+            }
+        }
+    }
+
+    /**
      * Установка точки назначения для построения маршрута
      */
     public fun setEndPoint(point: Point) {
