@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/navheader3"
+        android:src="@drawable/navheader4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_margin="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="Что то написано"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewHeader"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,5 +41,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/textViewHeader"
         app:layout_constraintStart_toEndOf="@+id/textViewHeader"
         app:layout_constraintTop_toTopOf="@+id/textViewHeader"
-        app:srcCompat="@drawable/ugntu2" />
+        app:srcCompat="@drawable/ugntu6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
