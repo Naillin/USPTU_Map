@@ -5,11 +5,14 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import com.example.usptu_map.R
 import com.example.usptu_map.SomeTools
 import com.example.usptu_map.databinding.ActivityMainBinding
@@ -257,6 +260,14 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             drawerLayoutMain.closeDrawers()
             true
         }
+
+        // Создаем Handler для главного потока
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Проверяем, не уничтожена ли уже активность
+            if (!isFinishing) {
+                drawerLayoutMain.openDrawer(GravityCompat.START)
+            }
+        }, 1500) // Задержка в 2 секунды
     }
 
     private fun functionForBuildings(building: Point) {
