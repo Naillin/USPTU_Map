@@ -3,6 +3,7 @@ package com.example.usptu_map.map_operations
 import android.widget.Toast
 import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.map.MapObject
 import com.yandex.mapkit.map.MapObjectTapListener
 import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.mapview.MapView

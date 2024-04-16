@@ -47,7 +47,4 @@ class PolygonFactory(private val mapView: MapView) {
 
         return polygonMapObject
     }
-
-
-
 }

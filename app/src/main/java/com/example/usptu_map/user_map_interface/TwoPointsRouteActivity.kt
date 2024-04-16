@@ -40,12 +40,9 @@ class TwoPointsRouteActivity : AppCompatActivity() {
         listViewLeft.adapter = adapterLeft
         listViewRight.adapter = adapterRight
 
-        var selectedItemLeft = -1
-        var selectedItemRight = -1
         // Устанавливаем слушателя для обработки выбора элементов - нихуя не работает (посмотри с помощью точки останова)
         listViewLeft.setOnItemClickListener { parent, view, position, id ->
-            // Обновляем выбранную позицию в адаптере
-            adapterLeft.selectedItemPosition = position
+            adapterLeft.selectedPosition = position
             adapterLeft.notifyDataSetChanged()
 
             // Получаем выбранный элемент
@@ -53,8 +50,7 @@ class TwoPointsRouteActivity : AppCompatActivity() {
             if(selectedItemLeft != -1 && selectedItemRight != -1) buttonAccept.isEnabled = true
         }
         listViewRight.setOnItemClickListener { parent, view, position, id ->
-            // Обновляем выбранную позицию в адаптере
-            adapterRight.selectedItemPosition = position
+            adapterRight.selectedPosition = position
             adapterRight.notifyDataSetChanged()
 
             // Получаем выбранный элемент

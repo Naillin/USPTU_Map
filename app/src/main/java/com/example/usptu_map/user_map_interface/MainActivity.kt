@@ -24,10 +24,12 @@ import com.example.usptu_map.project_objects.coordinates.MapPoints.universityDor
 import com.example.usptu_map.system.ConstantsProject
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
+import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.Location
 import com.yandex.mapkit.map.CameraListener
+import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
@@ -48,20 +50,21 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 
         initializationMaps()
 
-        bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
-        mapOprations = MapOprations(bindingMainActivity)
-        mapBordersHolder = MapBordersHolder(bindingMainActivity.mapViewMain)
-        mapBorders = mapBordersHolder.getMapBorders()
-        routeFactory = RouteFactory(bindingMainActivity.mapViewMain)
-        userLocation = UserLocation(bindingMainActivity.mapViewMain, routeFactory)
+        bindingMainActivity = ActivityMainBinding.inflate(layoutInflater).apply {
+            mapOprations = MapOprations(this)
+            mapBordersHolder = MapBordersHolder(this.mapViewMain)
+            mapBorders = mapBordersHolder.getMapBorders()
+            routeFactory = RouteFactory(this.mapViewMain)
+            userLocation = UserLocation(this.mapViewMain, routeFactory)
+        }
 
         setContentView(bindingMainActivity.root)
 
-        mapOprations.startPointMaps()
-        mapOprations.polygonsOfMap()
-        mapOprations.customPlacemarksOfMap()
-
-
+        mapOprations.apply {
+            startPointMaps()
+            polygonsOfMap()
+            customPlacemarksOfMap()
+        }
 
         initializationNavMenu()
         launchersPack()
@@ -179,10 +182,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     userLocation.setEndPoint(academicBuildings[3].coordinates.toMapKitPoint())
                 }
                 R.id.itemSevenCorpus -> {
-                    // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    routeFactory.removeAllRoutes()
-                    userLocation.routingEnabled = true
-                    userLocation.setEndPoint(academicBuildings[4].coordinates.toMapKitPoint())
+                    functionForBuildings(academicBuildings[4].coordinates.toMapKitPoint())
                 }
                 R.id.ItemEightCorpus -> {
                     // НЕПРАВИЛЬНО!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -268,6 +268,17 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                 userLocation.routingEnabled = true
                 userLocation.setEndPoint(building)
                 userLocation.useExistingDataForRouting()
+
+                bindingMainActivity.mapViewMain.map.move(
+                    CameraPosition(
+                        building,
+                        /* zoom = */ 17.0f,
+                        /* azimuth = */ 150.0f,
+                        /* tilt = */ 30.0f
+                    ),
+                    Animation(Animation.Type.SMOOTH, 0.5F),
+                    null
+                )
             }
             else {
                 SomeTools(this@MainActivity).createAlertDialogMultiActions(
@@ -318,7 +329,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
      */
     private var twoPointsActivityLauncher: ActivityResultLauncher<Intent>? = null
     private fun launchersPack() {
-        //возвращение ответа из edit activity
+        //возвращение ответа из 2PointsActivity activity
         twoPointsActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if(it.resultCode == RESULT_OK) {
                 // Получение данных из интента
