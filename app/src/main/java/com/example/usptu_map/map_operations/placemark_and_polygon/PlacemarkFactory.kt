@@ -8,7 +8,7 @@ import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.image.ImageProvider
 
-abstract class PlacemarkFactory(private val mapView: MapView) : SettingsPlacemarkPolygon {
+class PlacemarkFactory(private val mapView: MapView) : SettingsPlacemarkPolygon {
     private val mapObjects = mapView.map.mapObjects.addCollection()
 
     fun addPlacemarkOnMap(title: String = "", point: Point = MapPoints.CENTER_USPTU_CITY_COORD, icon: Int = 0) : PlacemarkManager {
@@ -19,10 +19,10 @@ abstract class PlacemarkFactory(private val mapView: MapView) : SettingsPlacemar
         return PlacemarkManager(placemark)
     }
 
-    override fun updatePlacemarkIcon(placemark: PlacemarkMapObject, iconResId: Int): PlacemarkMapObject {
+   /* override fun updatePlacemarkIcon(placemark: PlacemarkMapObject, iconResId: Int): PlacemarkMapObject {
         placemark.setIcon(ImageProvider.fromResource(mapView.context, iconResId))
         return placemark
-    }
+    }*/
 
     override fun removeMapObject(placemark: MapObject) {
         if(placemark is PlacemarkMapObject){

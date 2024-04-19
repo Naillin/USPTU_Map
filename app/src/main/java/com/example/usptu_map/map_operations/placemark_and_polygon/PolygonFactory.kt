@@ -11,7 +11,7 @@ import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.PolygonMapObject
 import com.yandex.mapkit.mapview.MapView
 
-abstract class PolygonFactory(private val mapView: MapView) : SettingsPlacemarkPolygon  {
+class PolygonFactory(private val mapView: MapView) : SettingsPlacemarkPolygon  {
     private val mapObjects: MapObjectCollection = mapView.map.mapObjects.addCollection()
 
     fun addPolygonOnMap(points: List<Point> = listOf(Point(50.0, 50.0)), color: Int = Color.RED) : PolygonManager {
@@ -27,7 +27,7 @@ abstract class PolygonFactory(private val mapView: MapView) : SettingsPlacemarkP
         return PolygonManager(polygonMapObject)
     }
 
-    override fun updatePolygonColor(polygon: PolygonMapObject, color: Int): PolygonMapObject {
+    /*override fun updatePolygonColor(polygon: PolygonMapObject, color: Int): PolygonMapObject {
         polygon.fillColor = color
 
         return polygon
@@ -49,7 +49,7 @@ abstract class PolygonFactory(private val mapView: MapView) : SettingsPlacemarkP
         polygonMapObject.strokeWidth = width
 
         return polygonMapObject
-    }
+    }*/
 
 
 
