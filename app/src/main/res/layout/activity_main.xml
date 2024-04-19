@@ -60,6 +60,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_margin="20dp"
+        android:background="@drawable/fon_color1"
         app:headerLayout="@layout/nav_menu_header"
         app:menu="@menu/nav_menu" />
 

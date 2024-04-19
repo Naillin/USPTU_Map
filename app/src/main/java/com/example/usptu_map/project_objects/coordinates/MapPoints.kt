@@ -8,13 +8,11 @@ import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.dinni
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.eighthCorpus
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.elevenCorpus
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.firstCorpus
-import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.firstCorpusArea
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.firstDormitory
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.fiveDormitory
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.fourthCorpus
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.fourthDormitory
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.secondCorpus
-import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.secondCorpusArea
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.secondDormitory
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.sevenCorpus
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints.sixDormitory
@@ -74,7 +72,7 @@ object MapPoints {
 
     )
 
-    val academicBuildings = listOf( //закрепить полигоны из PolygonsMapPoints
+    val academicBuildings = listOf(
         AcademicBuilding("Building 1", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[0]), listOf("Department 1", "Department 2"), 0, firstCorpus.map { ParcelablePoint.fromMapKitPoint(it) }),
         AcademicBuilding("Building 2", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[1]), listOf("Department 3", "Department 4"), 0, secondCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
         AcademicBuilding("Building 3", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[2]), listOf("Department 5", "Department 6"), 0, thirdCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
@@ -96,7 +94,7 @@ object MapPoints {
         Point(54.815987, 56.062137),//6
         Point(54.814532, 56.061292)//10
     )
-    val universityDormitories = listOf( //закрепить полигоны из PolygonsMapPoints
+    val universityDormitories = listOf(
         Dormitory("Dormitory 1", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[0]), 0, firstDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
         Dormitory("Dormitory 2", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[1]), 0, secondDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
         Dormitory("Dormitory 3", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[2]), 0, thirdDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),

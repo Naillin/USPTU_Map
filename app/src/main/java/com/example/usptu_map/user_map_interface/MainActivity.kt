@@ -5,11 +5,14 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import com.example.usptu_map.R
 import com.example.usptu_map.SomeTools
 import com.example.usptu_map.databinding.ActivityMainBinding
@@ -24,10 +27,12 @@ import com.example.usptu_map.project_objects.coordinates.MapPoints.universityDor
 import com.example.usptu_map.system.ConstantsProject
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
+import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.Location
 import com.yandex.mapkit.map.CameraListener
+import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
@@ -48,20 +53,21 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 
         initializationMaps()
 
-        bindingMainActivity = ActivityMainBinding.inflate(layoutInflater)
-        mapOprations = MapOprations(bindingMainActivity)
-        mapBordersHolder = MapBordersHolder(bindingMainActivity.mapViewMain)
-        mapBorders = mapBordersHolder.getMapBorders()
-        routeFactory = RouteFactory(bindingMainActivity.mapViewMain)
-        userLocation = UserLocation(bindingMainActivity.mapViewMain, routeFactory)
+        bindingMainActivity = ActivityMainBinding.inflate(layoutInflater).apply {
+            mapOprations = MapOprations(this)
+            mapBordersHolder = MapBordersHolder(this.mapViewMain)
+            mapBorders = mapBordersHolder.getMapBorders()
+            routeFactory = RouteFactory(this.mapViewMain)
+            userLocation = UserLocation(this.mapViewMain, routeFactory)
+        }
 
         setContentView(bindingMainActivity.root)
 
-        mapOprations.startPointMaps()
-        mapOprations.polygonsOfMap()
-        mapOprations.customPlacemarksOfMap()
-
-
+        mapOprations.apply {
+            startPointMaps()
+            polygonsOfMap()
+            customPlacemarksOfMap()
+        }
 
         initializationNavMenu()
         launchersPack()
@@ -158,7 +164,8 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 
                 //ГРУППА - ЗДАНИЯ
                 R.id.itemFirstCorpus -> {
-                    functionForBuildings(academicBuildings[0].coordinates.toMapKitPoint()) //ДЕЛАЙ ТАК!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    functionForBuildings(academicBuildings[0].coordinates.toMapKitPoint())
+
                 }
                 R.id.itemSecondCorpus -> {
                     functionForBuildings(academicBuildings[1].coordinates.toMapKitPoint())
@@ -212,6 +219,14 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             drawerLayoutMain.closeDrawers()
             true
         }
+
+        // Создаем Handler для главного потока
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Проверяем, не уничтожена ли уже активность
+            if (!isFinishing) {
+                drawerLayoutMain.openDrawer(GravityCompat.START)
+            }
+        }, 1500) // Задержка в 2 секунды
     }
 
     private fun functionForBuildings(building: Point) {
@@ -223,6 +238,17 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                 userLocation.routingEnabled = true
                 userLocation.setEndPoint(building)
                 userLocation.useExistingDataForRouting()
+
+                bindingMainActivity.mapViewMain.map.move(
+                    CameraPosition(
+                        building,
+                        /* zoom = */ 17.0f,
+                        /* azimuth = */ 150.0f,
+                        /* tilt = */ 30.0f
+                    ),
+                    Animation(Animation.Type.SMOOTH, 0.5F),
+                    null
+                )
             }
             else {
                 SomeTools(this@MainActivity).createAlertDialogMultiActions(
@@ -273,7 +299,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
      */
     private var twoPointsActivityLauncher: ActivityResultLauncher<Intent>? = null
     private fun launchersPack() {
-        //возвращение ответа из edit activity
+        //возвращение ответа из 2PointsActivity activity
         twoPointsActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if(it.resultCode == RESULT_OK) {
                 // Получение данных из интента

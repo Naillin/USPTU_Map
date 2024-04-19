@@ -1,16 +1,13 @@
 package com.example.usptu_map.map_operations
-
-import android.util.Log
-
 import androidx.core.content.ContextCompat
 import com.example.usptu_map.R
 import com.example.usptu_map.databinding.ActivityMainBinding
-import com.example.usptu_map.map_operations.strategies.placemark.PlacemarkAnimationStrategy
+import com.example.usptu_map.map_operations.placemark_and_polygon.PlacemarkFactory
+import com.example.usptu_map.map_operations.placemark_and_polygon.PolygonFactory
 import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.map.CameraPosition
-
 
 
 
@@ -42,13 +39,15 @@ class MapOprations(private val binding: ActivityMainBinding)  {
 
 
 
+
+
+
     fun customPlacemarksOfMap() {
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[0], R.drawable.heart).addStrategy(
-            PlacemarkAnimationStrategy()
-        )
+
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[0], R.drawable.ugntu2_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[1], R.drawable.heart)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[2], R.drawable.heart)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[3], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[3], R.drawable.rosneft_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[4], R.drawable.heart)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[5], R.drawable.heart)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[6], R.drawable.heart)
@@ -57,6 +56,24 @@ class MapOprations(private val binding: ActivityMainBinding)  {
     }
 
 
+//    fun customPlacemarksOfMap() {
+//        for (i in 0 until MapPoints.ENTRANCES_BUILDINGS.size) {
+//            val placemark = placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[i], R.drawable.heart)
+//
+//            val pp = object : MapObjectTapListener {
+//                override fun onMapObjectTap(p0: com.yandex.mapkit.map.MapObject, p1: com.yandex.mapkit.geometry.Point): Boolean {
+//                    if (p0 is PlacemarkMapObject) {
+//                        // Действия при нажатии на метку
+//                        Log.d("PlacemarkFactory", "Вы нажали на метку")
+//                        return true
+//                    }
+//                    return false
+//                }
+//            }
+//
+//            placemark.addTapListener(pp)
+//        }
+//    }
 
 
     fun polygonsOfMap() = with(binding) {
