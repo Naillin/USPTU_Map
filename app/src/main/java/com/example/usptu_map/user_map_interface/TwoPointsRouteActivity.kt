@@ -30,7 +30,7 @@ class TwoPointsRouteActivity : AppCompatActivity() {
         // Получаем массив строк из ресурсов
         //val options = resources.getStringArray(R.array.buildings)
         val options: ArrayList<String> = arrayListOf()
-        combinedBuildingList.forEach { options.add(it.name) }
+        combinedBuildingList.forEach { options.add(it.name.toString()) }
 
         //Инициализируем адаптер
         adapterLeft = RadioAdapter(this@TwoPointsRouteActivity, options.toList())

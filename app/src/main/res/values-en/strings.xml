@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">USPTU Map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_corpus">First building</string>
+    <string name="second_corpus">Second building</string>
+    <string name="third_corpus">Third building</string>
+    <string name="fourth_corpus">Fourth building</string>
+    <string name="seven_corpus">Seventh building</string>
+    <string name="eight_corpus">Eighth building</string>
+    <string name="eleven_corpus">Eleventh building</string>
+    <string name="ufkOne_corpus">UFK-1</string>
+    <string name="ufkTwo_corpus">UFK-2</string>
+    <string name="first_dormitory">Dormitory №1</string>
+    <string name="second_dormitory">Dormitory №2</string>
+    <string name="third_dormitory">Dormitory №3</string>
+    <string name="fourth_dormitory">Dormitory №4</string>
+    <string name="five_dormitory">Dormitory №5</string>
+    <string name="six_dormitory">Dormitory №6</string>
+    <string name="ten_dormitory">Dormitory №10</string>
+    <string name="routs">Routes</string>
+    <string name="buildings">Buildings</string>
+    <string name="rout_A_B">From A to B</string>
+    <string name="to_the_current_building">To the current building</string>
+    <string name="dinning_hall">Dinning hall</string>
+</resources>

@@ -15,12 +15,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class PlacemarkAnimationStrategy(private val context: Context,private val iconResId: Int) :
+class PlacemarkAnimationStrategy(private val image: AnimatedImageProvider) :
     StrategyMapObject {
     override fun apply(mapObject: MapObject) {
         if(mapObject is PlacemarkMapObject) {
             val animation = mapObject.useAnimation().apply {
-                setIcon(AnimatedImageProvider.fromResource(context,iconResId), IconStyle())
+                setIcon(image, IconStyle())
             }
             animation.play()
         }

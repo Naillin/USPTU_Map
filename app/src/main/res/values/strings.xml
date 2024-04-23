@@ -22,4 +22,5 @@
     <string name="buildings">Здания</string>
     <string name="rout_A_B">От А до Б</string>
     <string name="to_the_current_building">До текущего здания</string>
+    <string name="dinning_hall">Столовая</string>
 </resources>

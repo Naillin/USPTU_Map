@@ -1,5 +1,6 @@
 package com.example.usptu_map.project_objects.coordinates
 
+import com.example.usptu_map.R
 import com.example.usptu_map.project_objects.base_entities.AcademicBuilding
 import com.example.usptu_map.project_objects.base_entities.Building
 import com.example.usptu_map.project_objects.base_entities.Dormitory
@@ -33,7 +34,7 @@ object MapPoints {
 
     val DINING_ROOM :Point = Point(54.816945,56.059144)
     val universityBildings = listOf( //закрепить полигоны из PolygonsMapPoints
-        Building("Жральня", "default", ParcelablePoint.fromMapKitPoint(DINING_ROOM), "dining", dinningRoom.map { ParcelablePoint.fromMapKitPoint(it) })
+        Building(R.string.dinning_hall, "default", ParcelablePoint.fromMapKitPoint(DINING_ROOM), "dining", dinningRoom.map { ParcelablePoint.fromMapKitPoint(it) })
     )
 
     //КОРПУСА
@@ -73,15 +74,15 @@ object MapPoints {
     )
 
     val academicBuildings = listOf(
-        AcademicBuilding("Building 1", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[0]), listOf("Department 1", "Department 2"), 0, firstCorpus.map { ParcelablePoint.fromMapKitPoint(it) }),
-        AcademicBuilding("Building 2", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[1]), listOf("Department 3", "Department 4"), 0, secondCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("Building 3", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[2]), listOf("Department 5", "Department 6"), 0, thirdCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("Building 4", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[3]), listOf("Department 7", "Department 8"), 0,fourthCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("Building 7", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[4]), listOf("Department 9", "Department 10"), 0, sevenCorpus.map{ParcelablePoint.fromMapKitPoint(it) }),
-        AcademicBuilding("Building 8", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[5]), listOf("Department 11", "Department 12"), 0, eighthCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("Building 11", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[6]), listOf("Department 13", "Department 14"), 0, elevenCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("UFK 1", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[7]), listOf("Department 15", "Department 16"), 0, ufkOneCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
-        AcademicBuilding("UFK 2", "default", ParcelablePoint.fromMapKitPoint(CORPUSES[8]), listOf("Department 17", "Department 18"), 0, ufkTwoCorpus.map{ParcelablePoint.fromMapKitPoint(it)})
+        AcademicBuilding( R.string.first_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[0]), listOf("Department 3", "Department 3"), 0, firstCorpus.map { ParcelablePoint.fromMapKitPoint(it) }),
+        AcademicBuilding(R.string.second_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[1]), listOf("Department 3", "Department 4"), 0, secondCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.third_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[2]), listOf("Department 5", "Department 6"), 0, thirdCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.fourth_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[3]), listOf("Department 7", "Department 8"), 0,fourthCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.seven_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[4]), listOf("Department 9", "Department 10"), 0, sevenCorpus.map{ParcelablePoint.fromMapKitPoint(it) }),
+        AcademicBuilding(R.string.eight_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[5]), listOf("Department 11", "Department 12"), 0, eighthCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.eleven_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[6]), listOf("Department 13", "Department 14"), 0, elevenCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.ufkOne_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[7]), listOf("Department 15", "Department 16"), 0, ufkOneCorpus.map{ParcelablePoint.fromMapKitPoint(it)}),
+        AcademicBuilding(R.string.ufkTwo_corpus, "default", ParcelablePoint.fromMapKitPoint(CORPUSES[8]), listOf("Department 17", "Department 18"), 0, ufkTwoCorpus.map{ParcelablePoint.fromMapKitPoint(it)})
     )
 
     //ОБЩЕЖИТИЯ
@@ -95,13 +96,13 @@ object MapPoints {
         Point(54.814532, 56.061292)//10
     )
     val universityDormitories = listOf(
-        Dormitory("Dormitory 1", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[0]), 0, firstDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 2", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[1]), 0, secondDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 3", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[2]), 0, thirdDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 4", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[3]), 0, fourthDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 5", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[4]), 0, fiveDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 6", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[5]), 0, sixDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
-        Dormitory("Dormitory 10", "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[6]), 0, tenDormitory.map{ParcelablePoint.fromMapKitPoint(it)})
+        Dormitory(R.string.first_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[0]), 0, firstDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.second_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[1]), 0, secondDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.third_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[2]), 0, thirdDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.fourth_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[3]), 0, fourthDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.five_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[4]), 0, fiveDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.six_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[5]), 0, sixDormitory.map{ParcelablePoint.fromMapKitPoint(it)}),
+        Dormitory(R.string.ten_dormitory, "default", ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[6]), 0, tenDormitory.map{ParcelablePoint.fromMapKitPoint(it)})
     )
 
     val combinedBuildingList = listOf(
