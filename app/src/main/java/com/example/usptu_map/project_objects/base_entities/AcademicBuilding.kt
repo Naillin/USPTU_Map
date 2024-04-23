@@ -1,10 +1,9 @@
 package com.example.usptu_map.project_objects.base_entities
 
 import android.os.Parcel
-import com.example.usptu_map.R
 
 class AcademicBuilding(
-    name: Int = R.string.first_corpus,
+    name: String = "default",
     address: String = "deafult",
     coordinates: ParcelablePoint = ParcelablePoint(0.0, 0.0), // Широта и долгота
     val departments: List<String> = listOf(), // Список кафедр
@@ -12,7 +11,7 @@ class AcademicBuilding(
     buildingPolygonPoints: List<ParcelablePoint> = listOf()
 ): Building(name, address, coordinates, "Academic", buildingPolygonPoints) {
     constructor(parcel: Parcel) : this(
-        parcel.readInt() ?: R.string.first_corpus,
+        parcel.readString() ?: "default",
         parcel.readString() ?: "default",
         parcel.readParcelable<ParcelablePoint>(ParcelablePoint::class.java.classLoader) ?: ParcelablePoint(0.0, 0.0),
         arrayListOf<String>().apply {

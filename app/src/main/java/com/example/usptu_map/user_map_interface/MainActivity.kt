@@ -22,8 +22,7 @@ import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
 import com.example.usptu_map.map_operations.UserLocationUpdateListener
 import com.example.usptu_map.project_objects.base_entities.Building
-import com.example.usptu_map.project_objects.coordinates.MapPoints.academicBuildings
-import com.example.usptu_map.project_objects.coordinates.MapPoints.universityDormitories
+import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.example.usptu_map.system.ConstantsProject
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
@@ -85,6 +84,8 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
         MapKitFactory.setApiKey(ConstantsProject.API_KEY_YANDEX_MAPS)
         MapKitFactory.initialize(this@MainActivity)
         TransportFactory.initialize(this@MainActivity)
+
+        MapPoints.initialize(this@MainActivity)
     }
 
     /**
@@ -157,62 +158,62 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     //ПОЛУЧИТЬ ИНФОРМАЦИЮ О ПАРАХ
                     routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
-                    userLocation.setEndPoint(academicBuildings[0].coordinates.toMapKitPoint())
+                    userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
 
 
                 }
 
                 //ГРУППА - ЗДАНИЯ
                 R.id.itemFirstCorpus -> {
-                    functionForBuildings(academicBuildings[0].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
 
                 }
                 R.id.itemSecondCorpus -> {
-                    functionForBuildings(academicBuildings[1].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[1].coordinates.toMapKitPoint())
                 }
                 R.id.itemThirdCorpus -> {
-                    functionForBuildings(academicBuildings[2].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[2].coordinates.toMapKitPoint())
                 }
                 R.id.itemFourthCorpus -> {
-                    functionForBuildings(academicBuildings[3].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[3].coordinates.toMapKitPoint())
                 }
                 R.id.itemSevenCorpus -> {
-                    functionForBuildings(academicBuildings[4].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[4].coordinates.toMapKitPoint())
                 }
                 R.id.ItemEightCorpus -> {
-                    functionForBuildings(academicBuildings[5].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[5].coordinates.toMapKitPoint())
                 }
                 R.id.ItemElevenCorpus -> {
-                    functionForBuildings(academicBuildings[6].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[6].coordinates.toMapKitPoint())
                 }
                 R.id.ItemUfkOneCorpus -> {
-                    functionForBuildings(academicBuildings[7].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[7].coordinates.toMapKitPoint())
                 }
                 R.id.ItemUfkTwoCorpus -> {
-                    functionForBuildings(academicBuildings[8].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[8].coordinates.toMapKitPoint())
                 }
 
                 //ГРУППА - ОБЩЕЖИТИЯ
                 R.id.itemFirstDormitory -> {
-                    functionForBuildings(universityDormitories[0].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[0].coordinates.toMapKitPoint())
                 }
                 R.id.itemSecondDormitory -> {
-                    functionForBuildings(universityDormitories[1].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[1].coordinates.toMapKitPoint())
                 }
                 R.id.itemThirdDormitory -> {
-                    functionForBuildings(universityDormitories[2].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[2].coordinates.toMapKitPoint())
                 }
                 R.id.itemFourthDormitory -> {
-                    functionForBuildings(universityDormitories[3].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[3].coordinates.toMapKitPoint())
                 }
                 R.id.itemFiveDormitory -> {
-                    functionForBuildings(universityDormitories[4].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[4].coordinates.toMapKitPoint())
                 }
                 R.id.itemSixDormitory -> {
-                    functionForBuildings(universityDormitories[5].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[5].coordinates.toMapKitPoint())
                 }
                 R.id.ItemTenDormitory -> {
-                    functionForBuildings(universityDormitories[0].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[6].coordinates.toMapKitPoint())
                 }
             }
 
