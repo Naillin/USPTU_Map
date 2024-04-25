@@ -23,4 +23,5 @@
     <string name="rout_A_B">From A to B</string>
     <string name="to_the_current_building">To the current building</string>
     <string name="dinning_hall">Dinning hall</string>
+    <string name="stringDefault">default</string>
 </resources>
