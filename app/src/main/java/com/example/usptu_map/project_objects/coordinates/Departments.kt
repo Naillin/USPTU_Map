@@ -1,9 +1,5 @@
 package com.example.usptu_map.project_objects.coordinates
 
-import android.content.Context
-import androidx.core.content.ContextCompat.getString
-
-import com.example.usptu_map.R
 
 object Departments {
 
