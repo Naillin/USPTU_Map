@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.usptu_map.R
 import com.example.usptu_map.SomeTools
+import com.example.usptu_map.WebParsing.WebParsing
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.map_operations.MapBordersHolder
 import com.example.usptu_map.map_operations.MapOprations
@@ -35,6 +37,7 @@ import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     private lateinit var bindingMainActivity: ActivityMainBinding
@@ -70,7 +73,6 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 
         initializationNavMenu()
         launchersPack()
-        //WebParsing().getParseData() // не робит
     }
 
     /**
@@ -160,7 +162,10 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
 
-
+                    val wp = WebParsing("БПО-21-01", this@MainActivity);
+                    lifecycleScope.launch { wp.parseSchedule() }
+                    var lessons = wp.getSchedule()
+                    lessons = wp.getSchedule()
                 }
 
                 //ГРУППА - ЗДАНИЯ

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.usptu_map.databinding.ActivityTwoPointsRouteBinding
-import com.example.usptu_map.project_objects.coordinates.MapPoints.combinedBuildingList
+import com.example.usptu_map.project_objects.coordinates.MapPoints.Companion.combinedBuildingList
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
 
