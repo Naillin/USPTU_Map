@@ -158,14 +158,14 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                 R.id.itemMakeLessonRoute -> {
 
                     //ПОЛУЧИТЬ ИНФОРМАЦИЮ О ПАРАХ
-                    routeFactory.removeAllRoutes()
+                   /* routeFactory.removeAllRoutes()
                     userLocation.routingEnabled = true
                     userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
 
                     val wp = WebParsing("БПО-21-01", this@MainActivity);
                     lifecycleScope.launch { wp.parseSchedule() }
                     var lessons = wp.getSchedule()
-                    lessons = wp.getSchedule()
+                    lessons = wp.getSchedule()*/
                 }
 
                 //ГРУППА - ЗДАНИЯ

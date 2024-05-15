@@ -24,4 +24,7 @@
     <string name="to_the_current_building">To the current building</string>
     <string name="dinning_hall">Dinning hall</string>
     <string name="stringDefault">default</string>
+    <string name="create_route">Create route</string>
+    <string name="location_is_determined">Location is determined</string>
+    <string name="location_is_not_determined">Location is not determined</string>
 </resources>

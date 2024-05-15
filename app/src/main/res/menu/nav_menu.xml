@@ -14,7 +14,8 @@
         <item
             android:id="@+id/itemMakeLessonRoute"
             android:icon="@drawable/lesson_route"
-            android:title="@string/to_the_current_building" />
+            android:title="@string/to_the_current_building"
+            android:visible="false" />
     </group>
 
     <item

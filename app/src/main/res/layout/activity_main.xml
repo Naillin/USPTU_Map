@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Местоположение не определено"
+                android:text="@string/location_is_determined"
                 android:textColor="@color/black" />
         </androidx.cardview.widget.CardView>
 
@@ -60,8 +60,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:layout_margin="20dp"
-        android:background="@drawable/fon_color1"
+
         app:headerLayout="@layout/nav_menu_header"
-        app:menu="@menu/nav_menu" />
+        app:menu="@menu/nav_menu"
+        android:theme="@style/NavMenuStyle"
+        style="@style/NavMenuItemTextStyle"/>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

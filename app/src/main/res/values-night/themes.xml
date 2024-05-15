@@ -1,7 +1,59 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.USPTU_Map" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@color/base_color</item> //статус бар
+        <item name="android:windowLightStatusBar">false</item> //текст в статус баре
+        <item name="android:windowBackground">@color/base_color</item>//цвет окна
+        <item name="android:navigationBarColor">@color/base_color</item>// навбар(снизу)
+
+        <item name="colorPrimary">@color/accent_color</item> //акцент цвет (кнопки,радиобатторны)
+
+        <!-- Цвет текста для общего использования (например, для TextView). -->
+        <item name="android:textColor">@color/white</item>
+
+        <!-- Цвет акцента для выделения элементов (например, для подчеркивания ссылок или выбора в списках). -->
+        <item name="android:colorAccent">@color/base_color</item>
+
     </style>
+
+    <style name="ListViewStyle" parent="Widget.AppCompat.ListView">
+        <item name="android:listSelector">@color/accent_color</item> <!-- Выделение элемента списка -->
+        <item name="android:background">@color/cardView_color</item>
+    </style>
+
+    <style name="CardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:background">@color/cardView_color</item>
+
+    </style>
+
+    <style name="ButtonStyle" parent="ShapeAppearanceOverlay.Material3.Button" >
+        <item name="android:background">@color/accent_color</item>
+        <item name="android:textColor">@color/base_color</item>
+    </style>
+
+    <style name="TextViewStyle" parent= "Widget.AppCompat.TextView">
+        <item name="android:background">@color/transpanent</item>
+        <item name="android:textColor">@color/accent_color</item>
+    </style>
+    <style name="ImageViewStyle">
+        <item name="android:background">@color/transpanent</item>
+    </style>
+
+    <style name="NavMenuStyle" parent= "Widget.Material3.NavigationView">
+        <item name="android:background">@color/base_color</item>
+        <item name="android:titleTextColor">@color/accent_color</item>
+        <item name="itemTextAppearance">@style/NavMenuItemTextStyle</item>
+        <item name="titleTextAppearance">@style/NavMenuItemTextStyle</item>
+    </style>
+
+    <style name="ButtonNavMenuStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/accent_color</item>
+    </style>
+
+
+
+    <style name="NavMenuItemTextStyle" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textColor">@color/accent_color</item>
+    </style>
+
+
 </resources>

@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ugntu3"
         android:supportsRtl="true"
-        android:theme="@style/Theme.USPTU_Map"
+        android:theme="@style/Base.Theme.USPTU_Map"
         tools:targetApi="31">
         <activity
             android:name=".user_map_interface.TwoPointsRouteActivity"

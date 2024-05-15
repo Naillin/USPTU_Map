@@ -24,4 +24,7 @@
     <string name="to_the_current_building">До текущего здания</string>
     <string name="dinning_hall">Столовая</string>
     <string name="stringDefault">default</string>
+    <string name="create_route">Проложить маршрут</string>
+    <string name="location_is_determined">Местоположение определено</string>
+    <string name="location_is_not_determined">Местоположение не определено</string>
 </resources>
