@@ -51,9 +51,9 @@
 
     <style name="NavMenuItemStyle" parent="TextAppearance.AppCompat.Subhead">
         <item name="android:textColor">@color/accent_color</item>
+        <item name="color">@color/accent_color</item>
+        <item name="android:color">@color/accent_color</item>
         <item name="itemBackground">@color/base_color</item>
         <item name="itemRippleColor">@color/cardView_color</item>
     </style>
-
-
 </resources>

@@ -64,7 +64,9 @@
         app:headerLayout="@layout/nav_menu_header"
         app:menu="@menu/nav_menu"
         android:theme="@style/NavMenuStyle"
-        style="@style/NavMenuItemStyle"/>
+        style="@style/NavMenuItemStyle"
+        app:itemTextColor="@color/accent_color"
+        app:itemIconTint="@color/accent_color" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

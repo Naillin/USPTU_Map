@@ -9,11 +9,11 @@
 
         <!-- Цвет текста для общего использования (например, для TextView). -->
         <item name="android:textColor">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
         <item name="android:color">@color/white</item>
 
         <!-- Цвет акцента для выделения элементов (например, для подчеркивания ссылок или выбора в списках). -->
         <item name="android:colorAccent">@color/base_color</item>
-
     </style>
 
     <style name="ListViewStyle" parent="Widget.AppCompat.ListView">
@@ -26,31 +26,34 @@
 
     </style>
 
-    <style name="ButtonStyle" >
+    <style name="ButtonStyle" parent="ShapeAppearanceOverlay.Material3.Button" >
         <item name="android:background">@color/accent_color</item>
         <item name="android:textColor">@color/base_color</item>
     </style>
 
-    <style name="TextViewStyle" parent= "Widget.AppCompat.TextView">
+    <style name="TextViewStyle" parent="Widget.AppCompat.TextView">
         <item name="android:background">@color/transpanent</item>
+        <item name="android:textColor">@color/accent_color</item>
     </style>
     <style name="ImageViewStyle">
         <item name="android:background">@color/transpanent</item>
     </style>
 
-    <style name="NavMenuStyle" parent= "Widget.Material3.NavigationView">
+    <style name="NavMenuStyle" parent="Widget.Material3.NavigationView">
         <item name="android:background">@color/base_color</item>
-        <item name="android:itemTextAppearance">@style/ButtonNavMenuStyle</item>
+        <item name="android:titleTextColor">@color/accent_color</item>
+        <item name="titleTextAppearance">@style/NavMenuItemStyle</item>
 
+        <item name="itemTextAppearance">@style/NavMenuItemStyle</item>
+        <item name="itemBackground">@color/cardView_color</item>
+        <item name="itemRippleColor">@color/cardView_color</item>
     </style>
 
-    <style name="ButtonNavMenuStyle" parent="TextAppearance.AppCompat">
+    <style name="NavMenuItemStyle" parent="TextAppearance.AppCompat.Subhead">
         <item name="android:textColor">@color/accent_color</item>
+        <item name="color">@color/accent_color</item>
+        <item name="android:color">@color/accent_color</item>
+        <item name="itemBackground">@color/base_color</item>
+        <item name="itemRippleColor">@color/cardView_color</item>
     </style>
-
-
-
-
-
-
 </resources>
