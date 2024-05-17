@@ -101,9 +101,8 @@
             android:enabled="false"
             android:onClick="buttonAcceptOnClick"
             android:text="@string/create_route"
-            android:visibility="visible"
-            android:textColor="@color/base_color"
-            android:theme="@style/ButtonStyle"/>
+            android:theme="@style/ButtonStyle"
+            android:visibility="visible" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

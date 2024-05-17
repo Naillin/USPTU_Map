@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">USPTU Map</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stringDefault">default</string>
+
+    <string name="routs">Routes</string>
+    <string name="buildings">Buildings</string>
+    <string name="rout_A_B">From A to B</string>
+    <string name="to_the_current_building">To the current building</string>
+    <string name="create_route">Create route</string>
+    <string name="location_is_determined">Location is determined</string>
+    <string name="location_is_not_determined">Location is not determined</string>
+    <string name="far_from_the_university_title">A bit far...</string>
+    <string name="far_from_the_university_message">It seems you are very far from the campus.\nCan we offer you to order a taxi or get directions using 2GIS to the point?</string>
+
     <string name="first_corpus">First building</string>
     <string name="second_corpus">Second building</string>
     <string name="third_corpus">Third building</string>
@@ -18,13 +29,5 @@
     <string name="five_dormitory">Dormitory №5</string>
     <string name="six_dormitory">Dormitory №6</string>
     <string name="ten_dormitory">Dormitory №10</string>
-    <string name="routs">Routes</string>
-    <string name="buildings">Buildings</string>
-    <string name="rout_A_B">From A to B</string>
-    <string name="to_the_current_building">To the current building</string>
     <string name="dinning_hall">Dinning hall</string>
-    <string name="stringDefault">default</string>
-    <string name="create_route">Create route</string>
-    <string name="location_is_determined">Location is determined</string>
-    <string name="location_is_not_determined">Location is not determined</string>
 </resources>

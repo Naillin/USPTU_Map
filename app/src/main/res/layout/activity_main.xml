@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/location_is_determined"
+                android:text="@string/location_is_not_determined"
                 android:textColor="@color/black" />
         </androidx.cardview.widget.CardView>
 
@@ -64,7 +64,7 @@
         app:headerLayout="@layout/nav_menu_header"
         app:menu="@menu/nav_menu"
         android:theme="@style/NavMenuStyle"
-        style="@style/NavMenuItemTextStyle"/>
+        style="@style/NavMenuItemStyle"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

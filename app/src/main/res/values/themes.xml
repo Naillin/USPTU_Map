@@ -9,6 +9,7 @@
 
         <!-- Цвет текста для общего использования (например, для TextView). -->
         <item name="android:textColor">@color/white</item>
+        <item name="android:color">@color/white</item>
 
         <!-- Цвет акцента для выделения элементов (например, для подчеркивания ссылок или выбора в списках). -->
         <item name="android:colorAccent">@color/base_color</item>

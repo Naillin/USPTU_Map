@@ -13,10 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.lifecycle.lifecycleScope
 import com.example.usptu_map.R
 import com.example.usptu_map.SomeTools
-import com.example.usptu_map.WebParsing.WebParsing
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.map_operations.MapBordersHolder
 import com.example.usptu_map.map_operations.MapOprations
@@ -37,7 +35,6 @@ import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     private lateinit var bindingMainActivity: ActivityMainBinding
@@ -91,7 +88,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     }
 
     /**
-     * Проверка прав программы
+     * Проверка прав программы, запуск отслеживания местоположения пользователя
      */
     private fun checkAndRequestLocationPermissions() {
         if (ContextCompat.checkSelfPermission(this@MainActivity, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -107,13 +104,13 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             userLocation.setLocationListener(this@MainActivity)
             userLocation.initUserLocation(ImageProvider.fromResource(
                 bindingMainActivity.root.context,
-                R.drawable.heart
+                R.drawable.walkperson_placemark
             ))
         }
     }
 
     /**
-     * Проверка прав программы
+     * Проверка прав программы, запуск отслеживания местоположения пользователя
      */
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -123,7 +120,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                 userLocation.setLocationListener(this@MainActivity)
                 userLocation.initUserLocation(ImageProvider.fromResource(
                     bindingMainActivity.root.context,
-                    R.drawable.heart
+                    R.drawable.walkperson_placemark
                 ))
             } else {
                 //Разрешения отклонены, показываем пользователю объяснение необходимости разрешений
@@ -137,7 +134,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
     override fun onLocationUpdated(location: Location) = with(bindingMainActivity) {
         runOnUiThread {
             cardViewStatus.setCardBackgroundColor(Color.GREEN)
-            textViewStatus.text = "Местоположение определено"
+            textViewStatus.text = getString(R.string.location_is_determined)
         }
     }
 
@@ -156,16 +153,15 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     twoPointsActivityLauncher?.launch(intent)
                 }
                 R.id.itemMakeLessonRoute -> {
-
                     //ПОЛУЧИТЬ ИНФОРМАЦИЮ О ПАРАХ
-                   /* routeFactory.removeAllRoutes()
-                    userLocation.routingEnabled = true
-                    userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
-
-                    val wp = WebParsing("БПО-21-01", this@MainActivity);
-                    lifecycleScope.launch { wp.parseSchedule() }
-                    var lessons = wp.getSchedule()
-                    lessons = wp.getSchedule()*/
+                    routeFactory.removeAllRoutes()
+                    //userLocation.routingEnabled = true
+//                    userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
+//
+//                    val wp = WebParsing("БПО-21-01", this@MainActivity);
+//                    lifecycleScope.launch { wp.parseSchedule() }
+//                    var lessons = wp.getSchedule()
+//                    lessons = wp.getSchedule()
                 }
 
                 //ГРУППА - ЗДАНИЯ
@@ -258,8 +254,8 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             }
             else {
                 SomeTools(this@MainActivity).createAlertDialogMultiActions(
-                    "Далековато...",
-                    "Кажется вы очень далеко от студенческого городка.\nМы можем предложить вам заказать такси или проложить маршрут с помощью 2ГИС до точки?",
+                    getString(R.string.far_from_the_university_title),
+                    getString(R.string.far_from_the_university_message),
                     SomeTools.AlertDialogAction("2GIS") { _, _ ->
                         val intent = Intent(Intent.ACTION_VIEW).apply {
                             data = Uri.parse("dgis://2gis.ru/routeSearch/rsType/ctx/from/${from.position.longitude},${from.position.latitude}/to/${building.longitude},${building.latitude}")
@@ -296,7 +292,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             }
         }
         else {
-            SomeTools(this@MainActivity).showToast("Местоположение не определено...")
+            SomeTools(this@MainActivity).showToast(getString(R.string.location_is_not_determined))
         }
     }
 

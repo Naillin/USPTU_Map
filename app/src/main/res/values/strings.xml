@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">USPTU Map</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stringDefault">default</string>
+
+    <string name="routs">Маршруты</string>
+    <string name="buildings">Здания</string>
+    <string name="rout_A_B">От А до Б</string>
+    <string name="to_the_current_building">До текущего здания</string>
+    <string name="create_route">Проложить маршрут</string>
+    <string name="location_is_determined">Местоположение определено</string>
+    <string name="location_is_not_determined">Местоположение не определено</string>
+    <string name="far_from_the_university_title">Далековато...</string>
+    <string name="far_from_the_university_message">Кажется вы очень далеко от студенческого городка.\nМы можем предложить вам заказать такси или проложить маршрут с помощью 2ГИС до точки?</string>
+
+
     <string name="first_corpus">Первый корпус</string>
     <string name="second_corpus">Второй корпус</string>
     <string name="third_corpus">Третий корпус</string>
@@ -18,13 +30,5 @@
     <string name="five_dormitory">Общежитие №5</string>
     <string name="six_dormitory">Общежитие №6</string>
     <string name="ten_dormitory">Общежитие №10</string>
-    <string name="routs">Маршруты</string>
-    <string name="buildings">Здания</string>
-    <string name="rout_A_B">От А до Б</string>
-    <string name="to_the_current_building">До текущего здания</string>
     <string name="dinning_hall">Столовая</string>
-    <string name="stringDefault">default</string>
-    <string name="create_route">Проложить маршрут</string>
-    <string name="location_is_determined">Местоположение определено</string>
-    <string name="location_is_not_determined">Местоположение не определено</string>
 </resources>

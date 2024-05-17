@@ -36,23 +36,23 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="Что то написано"
+                android:text="@string/stringDefault"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:theme="@style/TextViewStyle"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/imageViewHeaderIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="10dp"
                 android:theme="@style/ImageViewStyle"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewHeader"
-                app:layout_constraintStart_toEndOf="@+id/textViewHeader"
-                app:layout_constraintTop_toTopOf="@+id/textViewHeader"
-                app:srcCompat="@drawable/ugntu6" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ugntu5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
