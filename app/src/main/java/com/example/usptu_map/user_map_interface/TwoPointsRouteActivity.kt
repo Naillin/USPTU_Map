@@ -3,9 +3,11 @@ package com.example.usptu_map.user_map_interface
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Base64
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.usptu_map.databinding.ActivityTwoPointsRouteBinding
+import com.example.usptu_map.project_objects.ParcelingTools.toByteArray
 import com.example.usptu_map.project_objects.coordinates.MapPoints.Companion.combinedBuildingList
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY1
 import com.example.usptu_map.system.ConstantsProject.INTENT_KEY2
@@ -60,9 +62,14 @@ class TwoPointsRouteActivity : AppCompatActivity() {
     }
 
     fun buttonAcceptOnClick(view: View) {
+        val value1ByteArray = combinedBuildingList[selectedItemLeft].toByteArray()
+        val value2ByteArray = combinedBuildingList[selectedItemRight].toByteArray()
+        val value1String = Base64.encodeToString(value1ByteArray, Base64.DEFAULT)
+        val value2String = Base64.encodeToString(value2ByteArray, Base64.DEFAULT)
+
         val returnIntent = Intent().apply {
-            putExtra(INTENT_KEY1, combinedBuildingList[selectedItemLeft])
-            putExtra(INTENT_KEY2, combinedBuildingList[selectedItemRight])
+            putExtra(INTENT_KEY1, value1String)
+            putExtra(INTENT_KEY2, value2String)
         }
 
         setResult(Activity.RESULT_OK, returnIntent)

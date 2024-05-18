@@ -4,12 +4,10 @@ import com.example.usptu_map.R
 import com.example.usptu_map.databinding.ActivityMainBinding
 import com.example.usptu_map.map_operations.placemark_and_polygon.PlacemarkFactory
 import com.example.usptu_map.map_operations.placemark_and_polygon.PolygonFactory
-import com.example.usptu_map.map_operations.placemark_and_polygon.strategies.placemark.PlacemarkAnimationStrategy
 import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.example.usptu_map.project_objects.coordinates.PolygonsMapPoints
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.map.CameraPosition
-import com.yandex.runtime.image.AnimatedImageProvider
 
 
 class MapOprations(private val binding: ActivityMainBinding)  {
@@ -37,14 +35,7 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         )
     }
 
-
-
-
-
-
-
     fun customPlacemarksOfMap() {
-
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[0], R.drawable.ugntu2_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[1], R.drawable.ugntu2_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[2], R.drawable.ugntu2_placemark)
@@ -55,8 +46,6 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[7], R.drawable.sport_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[8], R.drawable.sport_placemark)
     }
-
-
 
     fun polygonsOfMap() = with(binding) {
         PolygonsMapPoints.apply {

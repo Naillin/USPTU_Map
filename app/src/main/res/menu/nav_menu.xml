@@ -16,6 +16,14 @@
             android:icon="@drawable/lesson_route"
             android:title="@string/to_the_current_building"
             android:visible="false" />
+        <item
+            android:id="@+id/itemMakeRouteFood"
+            android:icon="@drawable/food_building"
+            android:title="@string/route_to_food" />
+        <item
+            android:id="@+id/itemMakeRouteRelax"
+            android:icon="@drawable/relax_smile"
+            android:title="@string/route_to_relax" />
     </group>
 
     <item

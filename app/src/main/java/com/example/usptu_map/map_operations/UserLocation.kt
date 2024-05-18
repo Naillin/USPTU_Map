@@ -1,5 +1,6 @@
 package com.example.usptu_map.map_operations
 
+import com.example.usptu_map.project_objects.base_entities.Building
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.location.FilteringMode
@@ -11,6 +12,7 @@ import com.yandex.mapkit.map.PlacemarkMapObject
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.mapkit.transport.masstransit.Session
 import com.yandex.runtime.image.ImageProvider
+import android.location.Location as AndroidLocation
 
 /**
  * Класс описывающий отслеживание местоположение пользователя
@@ -95,13 +97,16 @@ class UserLocation(private val mapView: MapView, private val routeFactory: Route
     /**
      * Проверка больше ли расстояние, чем distanceTo от пользователя до точки
      */
-    public fun checkDistance(target: Point, distanceTo: Float = 1000F): Boolean {
+    public fun checkDistance(
+        target: Point = Point(0.0, 0.0),
+        distanceTo: Float = 1000F
+    ): Boolean {
         // Создаём объект Location для пользоваетля и выбранной точки
-        val userAndroidLocation = android.location.Location("").apply {
+        val userAndroidLocation = AndroidLocation("").apply {
             latitude = userLocation?.position?.latitude ?: 0.0
             longitude = userLocation?.position?.longitude ?: 0.0
         }
-        val targetAndroidLocation = android.location.Location("").apply {
+        val targetAndroidLocation = AndroidLocation("").apply {
             latitude = target.latitude
             longitude = target.longitude
         }
@@ -115,6 +120,59 @@ class UserLocation(private val mapView: MapView, private val routeFactory: Route
         } else {
             false
         }
+    }
+
+    /**
+     * Определение ближайшего здания относительно местоположения пользователя для заданного списка зданий
+     */
+    public fun getNearestBuilding(buildings: List<Building>): Building? {
+        if (buildings.isEmpty() || userLocation == null) return null
+
+        var nearestBuilding: Building? = null
+        var minDistance = Float.MAX_VALUE
+
+        val userAndroidLocation = AndroidLocation("").apply {
+            latitude = userLocation?.position?.latitude ?: 0.0
+            longitude = userLocation?.position?.longitude ?: 0.0
+        }
+        for (building in buildings) {
+            val targetAndroidLocation = AndroidLocation("").apply {
+                latitude = building.coordinates.latitude
+                longitude = building.coordinates.longitude
+            }
+            val distance = userAndroidLocation.distanceTo(targetAndroidLocation)
+            if (distance < minDistance) {
+                minDistance = distance
+                nearestBuilding = building
+            }
+        }
+
+        return nearestBuilding
+    }
+
+    /**
+     * Определение ближайших зданий в радиусе относительно местоположения пользователя для заданного списка зданий
+     */
+    public fun getNearestBuildings(buildings: List<Building>, radius: Float = 100F): List<Building> {
+        if (buildings.isEmpty() || userLocation == null) return emptyList()
+
+        val buildingsWithinRadius = mutableListOf<Building>()
+        val userAndroidLocation = AndroidLocation("").apply {
+            latitude = userLocation?.position?.latitude ?: 0.0
+            longitude = userLocation?.position?.longitude ?: 0.0
+        }
+        for (building in buildings) {
+            val targetAndroidLocation = AndroidLocation("").apply {
+                latitude = building.coordinates.latitude
+                longitude = building.coordinates.longitude
+            }
+            val distance = userAndroidLocation.distanceTo(targetAndroidLocation)
+            if (distance <= radius) {
+                buildingsWithinRadius.add(building)
+            }
+        }
+
+        return buildingsWithinRadius
     }
 
     /**

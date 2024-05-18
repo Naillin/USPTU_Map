@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Base64
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ import com.example.usptu_map.map_operations.MapOprations
 import com.example.usptu_map.map_operations.RouteFactory
 import com.example.usptu_map.map_operations.UserLocation
 import com.example.usptu_map.map_operations.UserLocationUpdateListener
+import com.example.usptu_map.project_objects.ParcelingTools.toParcelable
 import com.example.usptu_map.project_objects.base_entities.Building
 import com.example.usptu_map.project_objects.coordinates.MapPoints
 import com.example.usptu_map.system.ConstantsProject
@@ -163,11 +165,18 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 //                    var lessons = wp.getSchedule()
 //                    lessons = wp.getSchedule()
                 }
+                R.id.itemMakeRouteFood -> {
+                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с кафешками и магазинами
+                    functionForBuildings(building.coordinates.toMapKitPoint())
+                }
+                R.id.itemMakeRouteRelax -> {
+                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с зданиями чила
+                    functionForBuildings(building.coordinates.toMapKitPoint())
+                }
 
                 //ГРУППА - ЗДАНИЯ
                 R.id.itemFirstCorpus -> {
                     functionForBuildings(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
-
                 }
                 R.id.itemSecondCorpus -> {
                     functionForBuildings(MapPoints.academicBuildings[1].coordinates.toMapKitPoint())
@@ -306,11 +315,21 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
             if(it.resultCode == RESULT_OK) {
                 // Получение данных из интента
                 val data: Intent? = it.data
-                val value1 = data?.getParcelableExtra<Building>(INTENT_KEY1)
-                val value2 = data?.getParcelableExtra<Building>(INTENT_KEY2)
+                val value1String  = data?.getStringExtra(INTENT_KEY1)
+                val value2String  = data?.getStringExtra(INTENT_KEY2)
 
-                routeFactory.requestRoute2Points(value1!!.coordinates.toMapKitPoint(), value2!!.coordinates.toMapKitPoint()) {
+                if (value1String != null && value2String != null) {
+                    val value1ByteArray = Base64.decode(value1String, Base64.DEFAULT)
+                    val value2ByteArray = Base64.decode(value2String, Base64.DEFAULT)
 
+                    val value1 = value1ByteArray.toParcelable(Building.CREATOR)
+                    val value2 = value2ByteArray.toParcelable(Building.CREATOR)
+
+                    if (value1 != null && value2 != null) {
+                        routeFactory.requestRoute2Points(value1.coordinates.toMapKitPoint(), value2.coordinates.toMapKitPoint()) {
+
+                        }
+                    }
                 }
             }
         }
