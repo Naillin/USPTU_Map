@@ -32,4 +32,15 @@
     <string name="six_dormitory">Dormitory №6</string>
     <string name="ten_dormitory">Dormitory №10</string>
     <string name="dinning_hall">Dinning hall</string>
+
+    <string name="dinning_hall_cafe">Cafe-Dinning hall</string>
+    <string name="medina_cafe">Cafe Medina</string>
+    <string name="samarkand_cafe">Cafe Samarkand</string>
+    <string name="shaurma_cafe">Cafe Shaurma №1</string>
+    <string name="dodo_pizza_cafe">Dodo Pizza</string>
+    <string name="kfc_cafe">Rostics</string>
+    <string name="fudziyama_cafe">Fudziyama</string>
+
+    <string name="library_chill">Library</string>
+    <string name="colizeum_chill">gambling club Colizeum</string>
 </resources>

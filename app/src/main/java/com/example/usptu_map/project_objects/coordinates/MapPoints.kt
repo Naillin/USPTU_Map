@@ -29,6 +29,8 @@ class MapPoints() {
         lateinit var universityBuildings: List<Building>
         lateinit var academicBuildings: List<AcademicBuilding>
         lateinit var universityDormitories: List<Dormitory>
+        lateinit var universityCafe: List<Building>
+        lateinit var universityChill: List<Building>
         lateinit var combinedBuildingList: List<Building>
         private fun initializeBuildings() {
             universityBuildings = listOf( //закрепить полигоны из PolygonsMapPoints
@@ -57,10 +59,29 @@ class MapPoints() {
                 Dormitory(getString(appContext, R.string.ten_dormitory), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(UNIVERSITY_DORMITORY[6]), 0, PolygonsMapPoints.tenDormitory.map{ ParcelablePoint.fromMapKitPoint(it)})
             )
 
+            universityCafe = listOf(
+                Building(getString(appContext, R.string.samarkand_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[0]), "cafe"),
+                Building(getString(appContext, R.string.medina_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[1]), "cafe"),
+                Building(getString(appContext, R.string.dinning_hall_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[2]), "cafe"),
+                Building(getString(appContext, R.string.shaurma_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[3]), "cafe"),
+                Building(getString(appContext, R.string.dodo_pizza_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[4]), "cafe"),
+                Building(getString(appContext, R.string.kfc_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[5]), "cafe"),
+                Building(getString(appContext, R.string.fudziyama_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[6]), "cafe"),
+            )
+
+            universityChill = listOf(
+                Building(getString(appContext, R.string.library_chill), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CHILL[0]), "chill"),
+                Building(getString(appContext, R.string.colizeum_chill), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CHILL[1]), "chill"),
+            )
+
+
+
             combinedBuildingList = listOf(
                 universityBuildings,
                 academicBuildings,
-                universityDormitories
+                universityDormitories,
+                universityCafe,
+                universityChill
             ).flatten() //Объединит все выбранные элементы в один список
         }
 
@@ -107,6 +128,21 @@ class MapPoints() {
             Point(54.817564, 56.058810),//11
             Point(54.816225, 56.060184),//УФК1
             Point(54.814710, 56.060517) //УФК2
+        )
+
+        val CAFE = listOf(
+            Point(54.818243, 56.061043), //Самарканд
+            Point(54.818347,56.062131),//Медина
+            Point(54.818420,56.06267),//столовая
+            Point(54.818434,56.063042), //Шаурма 1
+            Point(54.818561,56.064369), //DODO PIZZA
+            Point(54.818071,56.063044), //KFC
+            Point(54.817995,56.062572), //Фудзияма
+        )
+
+        val CHILL = listOf(
+            Point(54.816715, 56.063635),// библиотека
+            Point(54.813542,56.057447), //colizeum
         )
     }
 }

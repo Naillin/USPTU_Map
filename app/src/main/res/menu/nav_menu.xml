@@ -5,12 +5,12 @@
 
     <item
         android:enabled="false"
-        android:title="@string/routs" />
+        android:title="@string/routes" />
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/itemMakeRoute"
             android:icon="@drawable/make_route"
-            android:title="@string/rout_A_B" />
+            android:title="@string/route_A_B" />
         <item
             android:id="@+id/itemMakeLessonRoute"
             android:icon="@drawable/lesson_route"

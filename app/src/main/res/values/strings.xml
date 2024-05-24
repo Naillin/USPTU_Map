@@ -33,4 +33,15 @@
     <string name="six_dormitory">Общежитие №6</string>
     <string name="ten_dormitory">Общежитие №10</string>
     <string name="dinning_hall">Столовая</string>
+
+    <string name="dinning_hall_cafe">Кафе-Столовая</string>
+    <string name="medina_cafe">Кафе Медина</string>
+    <string name="samarkand_cafe">Кафе Самарканд</string>
+    <string name="shaurma_cafe">Кафе Шаурма №1</string>
+    <string name="dodo_pizza_cafe">Додо Пицца</string>
+    <string name="kfc_cafe">Rostics</string>
+    <string name="fudziyama_cafe">Фудзияма</string>
+
+    <string name="library_chill">Библиотека</string>
+    <string name="colizeum_chill">игровой клуб Колизей</string>
 </resources>
