@@ -75,7 +75,6 @@ class MapPoints() {
             )
 
 
-
             combinedBuildingList = listOf(
                 universityBuildings,
                 academicBuildings,

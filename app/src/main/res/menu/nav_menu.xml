@@ -21,6 +21,10 @@
             android:icon="@drawable/food_building"
             android:title="@string/route_to_food" />
         <item
+            android:id="@+id/itemMakeRouteProducts"
+            android:icon="@drawable/money"
+            android:title="@string/route_to_products" />
+        <item
             android:id="@+id/itemMakeRouteRelax"
             android:icon="@drawable/relax_smile"
             android:title="@string/route_to_relax" />

@@ -8,6 +8,7 @@
     <string name="route_A_B">From A to B</string>
     <string name="to_the_current_building">To current lesson</string>
     <string name="route_to_food">Eat nearby</string>
+    <string name="route_to_products">Grocery stores nearby</string>
     <string name="route_to_relax">Relax nearby</string>
     <string name="create_route">Create route</string>
     <string name="location_is_determined">Location is determined</string>

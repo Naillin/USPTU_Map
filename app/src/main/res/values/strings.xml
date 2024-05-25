@@ -8,6 +8,7 @@
     <string name="route_A_B">От А до Б</string>
     <string name="to_the_current_building">До текущего занятия</string>
     <string name="route_to_food">Поесть рядом</string>
+    <string name="route_to_products">Продуктовые магазины рядом</string>
     <string name="route_to_relax">Отдохнуть рядом</string>
     <string name="create_route">Проложить маршрут</string>
     <string name="location_is_determined">Местоположение определено</string>

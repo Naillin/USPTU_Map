@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">USPTU Map</string>
+
+    <string name="to_the_current_building">До текущего занятия</string>
+    <string name="route_to_food">Поесть рядом</string>
+    <string name="route_to_relax">Отдохнуть рядом</string>
+    <string name="create_route">Проложить маршрут</string>
+    <string name="location_is_determined">Местоположение определено</string>
+    <string name="location_is_not_determined">Местоположение не определено</string>
+</resources>

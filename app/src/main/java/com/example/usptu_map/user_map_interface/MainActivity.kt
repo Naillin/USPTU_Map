@@ -166,11 +166,15 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 //                    lessons = wp.getSchedule()
                 }
                 R.id.itemMakeRouteFood -> {
-                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с кафешками и магазинами
+                    val building = userLocation.getNearestBuilding(MapPoints.universityCafe)!!
+                    functionForBuildings(building.coordinates.toMapKitPoint())
+                }
+                R.id.itemMakeRouteProducts -> {
+                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с магазинами
                     functionForBuildings(building.coordinates.toMapKitPoint())
                 }
                 R.id.itemMakeRouteRelax -> {
-                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с зданиями чила
+                    val building = userLocation.getNearestBuilding(MapPoints.universityChill)!!
                     functionForBuildings(building.coordinates.toMapKitPoint())
                 }
 
