@@ -31,6 +31,7 @@ class MapPoints() {
         lateinit var universityDormitories: List<Dormitory>
         lateinit var universityCafe: List<Building>
         lateinit var universityChill: List<Building>
+        lateinit var universityProducts: List<Building>
         lateinit var combinedBuildingList: List<Building>
         private fun initializeBuildings() {
             universityBuildings = listOf( //закрепить полигоны из PolygonsMapPoints
@@ -67,13 +68,25 @@ class MapPoints() {
                 Building(getString(appContext, R.string.dodo_pizza_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[4]), "cafe"),
                 Building(getString(appContext, R.string.kfc_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[5]), "cafe"),
                 Building(getString(appContext, R.string.fudziyama_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[6]), "cafe"),
+                Building(getString(appContext, R.string.bread_yard_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[7]), "cafe"),
+                Building(getString(appContext, R.string.farfor_pizza_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[8]), "cafe"),
+                Building(getString(appContext, R.string.companion_coffee_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[9]), "cafe"),
+                Building(getString(appContext, R.string.aloha_coffe_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[10]), "cafe"),
+                Building(getString(appContext, R.string.coffee_like_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[11]), "cafe"),
+                Building(getString(appContext, R.string.mum_is_making_coffee_cafe), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CAFE[12]), "cafe")
             )
 
             universityChill = listOf(
                 Building(getString(appContext, R.string.library_chill), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CHILL[0]), "chill"),
-                Building(getString(appContext, R.string.colizeum_chill), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CHILL[1]), "chill"),
+                Building(getString(appContext, R.string.colizeum_chill), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(CHILL[1]), "chill")
             )
 
+            universityProducts = listOf(
+                Building(getString(appContext, R.string.kalinka_products), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(PRODUCTS[0]), "products"),
+                Building(getString(appContext, R.string.red_and_white_products), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(PRODUCTS[1]), "products"),
+                Building(getString(appContext, R.string.monetka_products), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(PRODUCTS[2]), "products"),
+                Building(getString(appContext, R.string.pyaterochka_products), getString(appContext, R.string.stringDefault), ParcelablePoint.fromMapKitPoint(PRODUCTS[3]), "products")
+            )
 
             combinedBuildingList = listOf(
                 universityBuildings,
@@ -137,11 +150,24 @@ class MapPoints() {
             Point(54.818561,56.064369), //DODO PIZZA
             Point(54.818071,56.063044), //KFC
             Point(54.817995,56.062572), //Фудзияма
+            Point(54.816454,56.063516), //Хлебный дворик
+            Point(54.815559,56.057926), //Farfor pizza
+            Point(54.818253,56.060352), //Copmanion coffee
+            Point(54.818209,56.060746), //Aloha coffee
+            Point(54.817621,56.059990), // Coffee Like
+            Point(54.818295,56.064579) // Мама варит кофе
         )
 
         val CHILL = listOf(
             Point(54.816715, 56.063635),// библиотека
-            Point(54.813542,56.057447), //colizeum
+            Point(54.813542,56.057447) //colizeum
+        )
+
+        val PRODUCTS = listOf(
+            Point(54.818544,56.064104), //Калинка
+            Point(54.816698,56.063909), //КБ
+            Point(54.816535,56.063791), //Монетка
+            Point(54.815806,56.063180) //Пятерочка
         )
     }
 }

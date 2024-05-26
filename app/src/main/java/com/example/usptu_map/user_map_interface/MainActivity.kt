@@ -170,7 +170,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     functionForBuildings(building.coordinates.toMapKitPoint())
                 }
                 R.id.itemMakeRouteProducts -> {
-                    val building = userLocation.getNearestBuilding(listOf())!! //Создать список с магазинами
+                    val building = userLocation.getNearestBuilding(MapPoints.universityProducts)!!
                     functionForBuildings(building.coordinates.toMapKitPoint())
                 }
                 R.id.itemMakeRouteRelax -> {

@@ -42,7 +42,18 @@
     <string name="dodo_pizza_cafe">Додо Пицца</string>
     <string name="kfc_cafe">Rostics</string>
     <string name="fudziyama_cafe">Фудзияма</string>
+    <string name="bread_yard_cafe">Хлебный дворик</string>
+    <string name="farfor_pizza_cafe">Фарфор пицца</string>
+    <string name="companion_coffee_cafe">Companion coffe</string>
+    <string name="aloha_coffe_cafe">Aloha coffee</string>
+    <string name="coffee_like_cafe">Coffe Like</string>
+    <string name="mum_is_making_coffee_cafe">Мама варит кофе</string>
 
     <string name="library_chill">Библиотека</string>
     <string name="colizeum_chill">игровой клуб Колизей</string>
+
+    <string name="kalinka_products">Калинка</string>
+    <string name="red_and_white_products">Красное и белое</string>
+    <string name="monetka_products">Монетка</string>
+    <string name="pyaterochka_products">Пятерочка</string>
 </resources>

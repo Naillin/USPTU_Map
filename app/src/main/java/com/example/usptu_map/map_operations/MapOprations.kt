@@ -45,6 +45,30 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[6], R.drawable.techpark_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[7], R.drawable.sport_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[8], R.drawable.sport_placemark)
+        //кафе
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[0], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[1], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[2], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[3], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[4], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[5], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[6], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[7], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[8], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[9], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[10], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[11], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[12], R.drawable.heart)
+        //чилл зоны
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CHILL[0], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CHILL[1], R.drawable.heart)
+        //продуктовые магазины
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[0], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[1], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[2], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[3], R.drawable.heart)
+
+
     }
 
     fun polygonsOfMap() = with(binding) {

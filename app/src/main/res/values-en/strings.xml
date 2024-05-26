@@ -41,7 +41,18 @@
     <string name="dodo_pizza_cafe">Dodo Pizza</string>
     <string name="kfc_cafe">Rostics</string>
     <string name="fudziyama_cafe">Fudziyama</string>
+    <string name="bread_yard_cafe">Bread yard</string>
+    <string name="farfor_pizza_cafe">Farfor pizza</string>
+    <string name="companion_coffee_cafe">Companion coffe</string>
+    <string name="aloha_coffe_cafe">Aloha coffee</string>
+    <string name="coffee_like_cafe">Coffe Like</string>
+    <string name="mum_is_making_coffee_cafe">Mum is making coffee</string>
 
     <string name="library_chill">Library</string>
     <string name="colizeum_chill">gambling club Colizeum</string>
+
+    <string name="kalinka_products">Kalinka</string>
+    <string name="red_and_white_products">Red and White</string>
+    <string name="monetka_products">Monetka</string>
+    <string name="pyaterochka_products">Pyaterochka</string>
 </resources>
