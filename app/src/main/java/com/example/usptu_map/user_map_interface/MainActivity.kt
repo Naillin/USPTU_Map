@@ -158,7 +158,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     //ПОЛУЧИТЬ ИНФОРМАЦИЮ О ПАРАХ
                     routeFactory.removeAllRoutes()
                     //userLocation.routingEnabled = true
-//                    userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
+//                    userLocation.setEndPoint(MapPoints.academicBuildings[0].coordinatesExit.toMapKitPoint())
 //
 //                    val wp = WebParsing("БПО-21-01", this@MainActivity);
 //                    lifecycleScope.launch { wp.parseSchedule() }
@@ -167,67 +167,67 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                 }
                 R.id.itemMakeRouteFood -> {
                     val building = userLocation.getNearestBuilding(MapPoints.universityCafe)!!
-                    functionForBuildings(building.coordinates.toMapKitPoint())
+                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemMakeRouteProducts -> {
                     val building = userLocation.getNearestBuilding(MapPoints.universityProducts)!!
-                    functionForBuildings(building.coordinates.toMapKitPoint())
+                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemMakeRouteRelax -> {
                     val building = userLocation.getNearestBuilding(MapPoints.universityChill)!!
-                    functionForBuildings(building.coordinates.toMapKitPoint())
+                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
                 }
 
                 //ГРУППА - ЗДАНИЯ
                 R.id.itemFirstCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[0].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[0].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemSecondCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[1].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[1].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemThirdCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[2].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[2].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemFourthCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[3].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[3].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemSevenCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[4].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[4].coordinatesExit.toMapKitPoint())
                 }
                 R.id.ItemEightCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[5].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[5].coordinatesExit.toMapKitPoint())
                 }
                 R.id.ItemElevenCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[6].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[6].coordinatesExit.toMapKitPoint())
                 }
                 R.id.ItemUfkOneCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[7].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[7].coordinatesExit.toMapKitPoint())
                 }
                 R.id.ItemUfkTwoCorpus -> {
-                    functionForBuildings(MapPoints.academicBuildings[8].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.academicBuildings[8].coordinatesExit.toMapKitPoint())
                 }
 
                 //ГРУППА - ОБЩЕЖИТИЯ
                 R.id.itemFirstDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[0].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[0].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemSecondDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[1].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[1].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemThirdDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[2].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[2].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemFourthDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[3].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[3].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemFiveDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[4].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[4].coordinatesExit.toMapKitPoint())
                 }
                 R.id.itemSixDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[5].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[5].coordinatesExit.toMapKitPoint())
                 }
                 R.id.ItemTenDormitory -> {
-                    functionForBuildings(MapPoints.universityDormitories[6].coordinates.toMapKitPoint())
+                    functionForBuildings(MapPoints.universityDormitories[6].coordinatesExit.toMapKitPoint())
                 }
             }
 
@@ -330,7 +330,7 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
                     val value2 = value2ByteArray.toParcelable(Building.CREATOR)
 
                     if (value1 != null && value2 != null) {
-                        routeFactory.requestRoute2Points(value1.coordinates.toMapKitPoint(), value2.coordinates.toMapKitPoint()) {
+                        routeFactory.requestRoute2Points(value1.coordinatesExit.toMapKitPoint(), value2.coordinatesExit.toMapKitPoint()) {
 
                         }
                     }

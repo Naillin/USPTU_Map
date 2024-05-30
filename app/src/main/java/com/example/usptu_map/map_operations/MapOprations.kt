@@ -67,6 +67,7 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[1], R.drawable.kb_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[2], R.drawable.monetka_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[3], R.drawable.pyatyorochka_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[4], R.drawable.heart)
     }
 
     fun polygonsOfMap() = with(binding) {
