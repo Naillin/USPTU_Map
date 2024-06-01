@@ -48,14 +48,14 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         //кафе
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[0], R.drawable.halal_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[1], R.drawable.halal_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[2], R.drawable.food_building)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[2], R.drawable.food_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[3], R.drawable.shaurma_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[4], R.drawable.dodo_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[5], R.drawable.kfc_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[6], R.drawable.fujiyama_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[7], R.drawable.bakery_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[8], R.drawable.farfor_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[9], R.drawable.food_building)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[9], R.drawable.coffee_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[10], R.drawable.aloha_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[11], R.drawable.coffeelike_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[12], R.drawable.mvk_placemark)
@@ -63,11 +63,11 @@ class MapOprations(private val binding: ActivityMainBinding)  {
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CHILL[0], R.drawable.library_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CHILL[1], R.drawable.colizeum_placemark)
         //продуктовые магазины
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[0], R.drawable.money)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[0], R.drawable.dollar_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[1], R.drawable.kb_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[2], R.drawable.monetka_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[3], R.drawable.pyatyorochka_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[4], R.drawable.heart)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.PRODUCTS[4], R.drawable.dollar_placemark)
     }
 
     fun polygonsOfMap() = with(binding) {
