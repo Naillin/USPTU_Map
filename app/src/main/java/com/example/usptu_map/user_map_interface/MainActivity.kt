@@ -166,16 +166,16 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
 //                    lessons = wp.getSchedule()
                 }
                 R.id.itemMakeRouteFood -> {
-                    val building = userLocation.getNearestBuilding(MapPoints.universityCafe)!!
-                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
+                    val building = userLocation.getNearestBuilding(MapPoints.universityCafe)
+                    functionForBuildings(building?.coordinatesExit?.toMapKitPoint())
                 }
                 R.id.itemMakeRouteProducts -> {
-                    val building = userLocation.getNearestBuilding(MapPoints.universityProducts)!!
-                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
+                    val building = userLocation.getNearestBuilding(MapPoints.universityProducts)
+                    functionForBuildings(building?.coordinatesExit?.toMapKitPoint())
                 }
                 R.id.itemMakeRouteRelax -> {
-                    val building = userLocation.getNearestBuilding(MapPoints.universityChill)!!
-                    functionForBuildings(building.coordinatesExit.toMapKitPoint())
+                    val building = userLocation.getNearestBuilding(MapPoints.universityChill)
+                    functionForBuildings(building?.coordinatesExit?.toMapKitPoint())
                 }
 
                 //ГРУППА - ЗДАНИЯ
@@ -244,10 +244,9 @@ class MainActivity : AppCompatActivity(), UserLocationUpdateListener {
         }, 1500) // Задержка в 2 секунды
     }
 
-    private fun functionForBuildings(building: Point) {
+    private fun functionForBuildings(building: Point?) {
         val from = userLocation.getUserLocation()
-        if(from != null) {
-
+        if(from != null && building != null) {
             if(!userLocation.checkDistance(building, 1000F)) {
                 routeFactory.removeAllRoutes()
                 userLocation.routingEnabled = true
