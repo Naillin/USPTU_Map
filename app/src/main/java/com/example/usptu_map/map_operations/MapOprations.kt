@@ -36,15 +36,15 @@ class MapOprations(private val binding: ActivityMainBinding)  {
     }
 
     fun customPlacemarksOfMap() {
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[0], R.drawable.ugntu2_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[1], R.drawable.ugntu2_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[2], R.drawable.ugntu2_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[3], R.drawable.rosneft_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[4], R.drawable.ugntu2_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[5], R.drawable.ugntu2_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[6], R.drawable.techpark_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[7], R.drawable.sport_placemark)
-        placemarkFactory.addPlacemarkOnMap("", MapPoints.ENTRANCES_BUILDINGS[8], R.drawable.sport_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[0], R.drawable.ugntu2_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[1], R.drawable.ugntu2_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[2], R.drawable.ugntu2_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[3], R.drawable.rosneft_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[4], R.drawable.ugntu2_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[5], R.drawable.ugntu2_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[6], R.drawable.techpark_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[7], R.drawable.sport_placemark)
+        placemarkFactory.addPlacemarkOnMap("", MapPoints.CORPUSES[8], R.drawable.sport_placemark)
         //кафе
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[0], R.drawable.halal_placemark)
         placemarkFactory.addPlacemarkOnMap("", MapPoints.CAFE[1], R.drawable.halal_placemark)
