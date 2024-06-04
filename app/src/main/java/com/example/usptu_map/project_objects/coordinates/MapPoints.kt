@@ -111,7 +111,8 @@ class MapPoints() {
                 academicBuildings,
                 universityDormitories,
                 universityCafe,
-                universityChill
+                universityChill,
+                universityProducts
             ).flatten() //Объединит все выбранные элементы в один список
         }
 
